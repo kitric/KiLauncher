@@ -15,13 +15,6 @@ namespace AppLauncher
     public class App
     {
         #region fields
-
-        /// <summary>
-        /// The path to the .exe file.
-        /// </summary>
-
-        private Color _displayColor;
-
         public Color DisplayColor{ get; set; }
 
         public string ExecutablePath { get; set; }
@@ -36,11 +29,6 @@ namespace AppLauncher
         /// </summary>
         public int ID { get; set; }
 
-        /// <summary>
-        /// A process cover image [OPTIONAL]
-        /// </summary>
-
-        private string _coverImagePath;
         public string ImagePath { get; set; }
 
         private readonly Random random = new Random();
