@@ -39,73 +39,83 @@ namespace AppLauncher.UserControls.Pages
             // 
             // DisplayName
             // 
-            this.DisplayName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(50)))));
+            this.DisplayName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.DisplayName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DisplayName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisplayName.ForeColor = System.Drawing.Color.White;
-            this.DisplayName.Location = new System.Drawing.Point(0, 0);
+            this.DisplayName.Location = new System.Drawing.Point(0, 13);
             this.DisplayName.Name = "DisplayName";
             this.DisplayName.ReadOnly = true;
             this.DisplayName.Size = new System.Drawing.Size(895, 22);
             this.DisplayName.TabIndex = 11;
             this.DisplayName.Text = "text";
             this.DisplayName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DisplayName.DoubleClick += new System.EventHandler(this.DisplayName_DoubleClick);
+            this.DisplayName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DisplayName_Enter_Pressed);
             // 
             // ChangePath
             // 
             this.ChangePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangePath.FlatAppearance.BorderSize = 0;
             this.ChangePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangePath.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePath.ForeColor = System.Drawing.Color.White;
-            this.ChangePath.Location = new System.Drawing.Point(182, 96);
+            this.ChangePath.Location = new System.Drawing.Point(182, 157);
             this.ChangePath.Name = "ChangePath";
             this.ChangePath.Size = new System.Drawing.Size(526, 28);
             this.ChangePath.TabIndex = 12;
             this.ChangePath.Text = "Change Target";
-            this.ChangePath.UseVisualStyleBackColor = true;
+            this.ChangePath.UseVisualStyleBackColor = false;
+            this.ChangePath.Click += new System.EventHandler(this.ChangePath_Click);
             // 
             // ChangeImagePath
             // 
             this.ChangeImagePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangeImagePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangeImagePath.FlatAppearance.BorderSize = 0;
             this.ChangeImagePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeImagePath.ForeColor = System.Drawing.Color.White;
-            this.ChangeImagePath.Location = new System.Drawing.Point(182, 145);
+            this.ChangeImagePath.Location = new System.Drawing.Point(182, 206);
             this.ChangeImagePath.Name = "ChangeImagePath";
             this.ChangeImagePath.Size = new System.Drawing.Size(530, 29);
             this.ChangeImagePath.TabIndex = 13;
             this.ChangeImagePath.Text = "Change background image";
-            this.ChangeImagePath.UseVisualStyleBackColor = true;
+            this.ChangeImagePath.UseVisualStyleBackColor = false;
+            this.ChangeImagePath.Click += new System.EventHandler(this.ChangeImagePath_Click);
             // 
             // RemoveImage
             // 
             this.RemoveImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.RemoveImage.FlatAppearance.BorderSize = 0;
             this.RemoveImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemoveImage.ForeColor = System.Drawing.Color.White;
-            this.RemoveImage.Location = new System.Drawing.Point(185, 196);
+            this.RemoveImage.Location = new System.Drawing.Point(185, 257);
             this.RemoveImage.Name = "RemoveImage";
             this.RemoveImage.Size = new System.Drawing.Size(527, 29);
             this.RemoveImage.TabIndex = 16;
             this.RemoveImage.Text = "Remove Image";
-            this.RemoveImage.UseVisualStyleBackColor = true;
+            this.RemoveImage.UseVisualStyleBackColor = false;
+            this.RemoveImage.Click += new System.EventHandler(this.RemoveImage_Click);
             // 
             // ChangeColor
             // 
             this.ChangeColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangeColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangeColor.FlatAppearance.BorderSize = 0;
             this.ChangeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeColor.ForeColor = System.Drawing.Color.White;
-            this.ChangeColor.Location = new System.Drawing.Point(185, 248);
+            this.ChangeColor.Location = new System.Drawing.Point(185, 309);
             this.ChangeColor.Name = "ChangeColor";
             this.ChangeColor.Size = new System.Drawing.Size(527, 29);
             this.ChangeColor.TabIndex = 17;
             this.ChangeColor.Text = "Change display color";
-            this.ChangeColor.UseVisualStyleBackColor = true;
+            this.ChangeColor.UseVisualStyleBackColor = false;
+            this.ChangeColor.Click += new System.EventHandler(this.ChangeColor_Click);
             // 
             // AppInfoPage
             // 

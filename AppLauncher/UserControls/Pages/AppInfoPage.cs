@@ -26,7 +26,34 @@ namespace AppLauncher.UserControls.Pages
 
         private void ApplyTheme()
         {
-            
+            switch (Properties.Settings.Default.Theme)
+            {
+                case "Dark":
+                    this.BackColor = Color.FromArgb(20, 20, 20);
+
+                    this.DisplayName.BackColor = Color.FromArgb(20, 20, 20);
+                    this.ChangePath.BackColor = Color.FromArgb(20, 20, 20);
+                    this.ChangeImagePath.BackColor = Color.FromArgb(20, 20, 20);
+                    this.ChangeColor.BackColor = Color.FromArgb(20, 20, 20);
+                    this.RemoveImage.BackColor = Color.FromArgb(20, 20, 20);
+                    break;
+
+                case "Light":
+                    this.BackColor = Color.White;
+
+                    this.DisplayName.BackColor = this.BackColor;
+                    this.ChangeColor.BackColor = this.BackColor;
+                    this.ChangeImagePath.BackColor = this.BackColor;
+                    this.ChangePath.BackColor = this.BackColor;
+                    this.RemoveImage.BackColor = this.BackColor;
+
+                    this.DisplayName.ForeColor = Color.Tomato;
+                    this.ChangeColor.ForeColor = Color.Tomato;
+                    this.ChangeImagePath.ForeColor = Color.Tomato;
+                    this.ChangePath.ForeColor = Color.Tomato;
+                    this.RemoveImage.ForeColor = Color.Tomato;
+                    break;
+            }
         }
 
         /// <summary>
@@ -38,32 +65,25 @@ namespace AppLauncher.UserControls.Pages
 
         }
 
-        /*
+        
         #region events
         private void DeleteProcess_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this entry?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                MainScreen.Form.Grid.Controls.Remove(MainScreen.Apps.Find(x => x.ID == AppButton.ID).Button);
-                MainScreen.Apps.Remove(MainScreen.Apps.Find(x => x.ID == AppButton.ID));
-
-                string posterCache = this.AppButton.ImagePath;
+                MainScreen.Apps.Remove(this.AppButton.App);
 
                 //If the shortcut has a background image.
                 if (this.AppButton.Button.BackgroundImage != null)
                 {
                     this.AppButton.DisposeBG();
-                    File.Delete(posterCache);
                 }
 
-                this.Close();
+                GlobalFunctions.SwitchTo<AppPage>(MainScreen.Instance.Content);
             }
         }
 
-        */
-
-
-
+        
         private void ChangeImagePath_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -120,7 +140,6 @@ namespace AppLauncher.UserControls.Pages
             }
         }
         
-
         private void ChangeColor_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -129,7 +148,9 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        
+        #endregion
 
+        private void RemoveImage_Click(object sender, EventArgs e) => this.AppButton.DisposeBG();
     }
 }
+

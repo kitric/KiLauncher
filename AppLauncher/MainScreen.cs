@@ -24,7 +24,7 @@ namespace AppLauncher
         private bool dragging;
         private Point startPoint;
 
-
+        
         public static MainScreen Instance;
 
         public MainScreen()
@@ -151,7 +151,6 @@ namespace AppLauncher
         #endregion
 
         #region delegates
-
         /// <summary>
         /// Helps sorting the list by name (Ascendent).
         /// </summary>
@@ -165,7 +164,6 @@ namespace AppLauncher
         {
             return -button.DisplayName.CompareTo(other.DisplayName);
         };
-
         #endregion
     }
 }

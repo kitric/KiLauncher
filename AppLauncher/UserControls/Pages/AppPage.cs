@@ -219,7 +219,6 @@ namespace AppLauncher.UserControls.Pages
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
 
-
                 this.Clear.Enabled = false;
             }
         }
