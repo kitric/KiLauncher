@@ -71,24 +71,6 @@ namespace AppLauncher.UserControls.Pages
         }
 
 
-        /// <summary>
-        /// Creates a copy of the image used in the cache.
-        /// </summary>
-        /// <param name="originalFilePath"></param>
-        /// <param name="id"></param>
-        public static string CreateCopyInCache(string originalFilePath, int id)
-        {
-            string extension = Path.GetExtension(originalFilePath);
-
-            string pathToWrite = Path.Combine(GlobalFunctions.GetProgramAppdataFolder(), "cache", $"{id}_posters{extension}");
-
-            File.Copy(originalFilePath, pathToWrite);
-
-            return pathToWrite;
-
-        }
-
-
         #region events
         /// <summary>
         /// Invoked whenever the Create button is clicked.
@@ -102,10 +84,7 @@ namespace AppLauncher.UserControls.Pages
             {
                 App app = new App(this.PathText.Text, this.DisplayName.Text, SelectedColor);
                 //Creates a new copy in the app cache if an image is specified.
-                app.ImagePath = !string.IsNullOrEmpty(this.ImagePathText.Text) ? CreateCopyInCache(this.ImagePathText.Text, app.ID) : "";
-
-                //MainScreen.Instance.Grid.Controls.Add(new AppButton(app));
-                //MainScreen.Instance.Grid.Controls.Remove(MainScreen.Instance.Label);
+                app.ImagePath = !string.IsNullOrEmpty(this.ImagePathText.Text) ? GlobalFunctions.CreateCopyInCache(this.ImagePathText.Text, app.ID) : "";
 
                 MainScreen.Apps.Add(app);
 
@@ -116,8 +95,6 @@ namespace AppLauncher.UserControls.Pages
                 MessageBox.Show("Invalid properties.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
 
         /// <summary>

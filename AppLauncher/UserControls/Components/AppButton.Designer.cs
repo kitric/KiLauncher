@@ -60,6 +60,6 @@ namespace AppLauncher.UserControls.Components
 
         #endregion
 
-        private System.Windows.Forms.Button Button;
+        internal System.Windows.Forms.Button Button;
     }
 }

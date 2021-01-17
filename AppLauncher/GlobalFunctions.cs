@@ -95,5 +95,24 @@ namespace AppLauncher
 
             panel.AutoScroll = true;
         }
+
+
+
+        /// <summary>
+        /// Creates a copy of the image used in the cache.
+        /// </summary>
+        /// <param name="originalFilePath"></param>
+        /// <param name="id"></param>
+        public static string CreateCopyInCache(string originalFilePath, int id)
+        {
+            string extension = Path.GetExtension(originalFilePath);
+
+            string pathToWrite = Path.Combine(GetProgramAppdataFolder(), "cache", $"{id}_posters{extension}");
+
+            File.Copy(originalFilePath, pathToWrite);
+
+            return pathToWrite;
+
+        }
     }
 }

@@ -88,7 +88,6 @@ namespace AppLauncher.UserControls.Pages
             {
                 this.Grid.Controls.Clear();
 
-
                 foreach (App p in MainScreen.Apps)
                 {
                     if (p.DisplayName.ToLower().Contains(query)) // Found you boi
@@ -115,13 +114,15 @@ namespace AppLauncher.UserControls.Pages
         /// <summary>
         /// Clears all buttons from the grid.
         /// </summary>
-        private void ClearButtons()
+        private void ClearButtons(bool clearCache)
         {
             // In order to not mess with the for each loop, a copy of the list must be created.
             List<AppButton> controls = new List<AppButton>(Grid.Controls.OfType<AppButton>());
 
             foreach (AppButton btn in controls)
             {
+                if (clearCache) btn.DisposeBG();
+
                 btn.Dispose();
             }
 
@@ -141,7 +142,7 @@ namespace AppLauncher.UserControls.Pages
             }
 
             // Clears everything to add them again.
-            ClearButtons();
+            ClearButtons(false);
             
             foreach (App p in MainScreen.Apps)
             {
@@ -211,19 +212,15 @@ namespace AppLauncher.UserControls.Pages
         {
             if (MessageBox.Show("Are you sure you want to delete all entries?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                ClearButtons();
-
+                ClearButtons(true);
                 MainScreen.Apps.Clear();
 
                 // Ensures everything is disposed by calling the garbage collector.
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
 
-                string path = Path.Combine(GlobalFunctions.GetProgramAppdataFolder(), "cache");
-                for (int i = 0; i < Directory.GetFiles(path).Length; i++)
-                {
-                    File.Delete(Directory.GetFiles(path)[i]);
-                }
+
+                this.Clear.Enabled = false;
             }
         }
 
@@ -232,6 +229,18 @@ namespace AppLauncher.UserControls.Pages
             this.Grid.Controls.Remove(Label);
             HandleSearch(this.SearchBar.Text);
         }
+
+        private void Grid_ControlAdded(object sender, ControlEventArgs e) => this.Clear.Enabled = e.Control.GetType() != typeof(Label);
+
         #endregion
+
+        private void Grid_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (Grid.Controls.Count == 0)
+            {
+                this.Grid.Controls.Add(Label);
+               
+            }
+        }
     }
 }

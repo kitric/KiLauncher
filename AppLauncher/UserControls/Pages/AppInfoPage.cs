@@ -1,23 +1,22 @@
 ﻿using AppLauncher.UserControls.Components;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppLauncher
+namespace AppLauncher.UserControls.Pages
 {
-    /// <summary>
-    /// Displays information about a specific process.
-    /// </summary>
-    public partial class AppInfo : Form
+    public partial class AppInfoPage : UserControl
     {
-
-        private bool dragging = false;
-        private Point startPoint;
-
         public AppButton AppButton { get; set; }
 
-        public AppInfo(AppButton button)
+        public AppInfoPage(AppButton button)
         {
             this.AppButton = button;
             InitializeComponent();
@@ -27,28 +26,7 @@ namespace AppLauncher
 
         private void ApplyTheme()
         {
-            if (Properties.Settings.Default.Theme == "Dark")
-            {
-                this.BackgroundPanel.BackColor = Color.FromArgb(20, 20, 20);
-                this.DisplayName.BackColor = Color.FromArgb(20, 20, 20);
-
-            }
-            else if (Properties.Settings.Default.Theme == "Light")
-            {
-                this.BackgroundPanel.BackColor = Color.White;
-                this.DisplayName.BackColor = Color.White;
-                this.DisplayName.ForeColor = Color.Tomato;
-
-
-                this.ChangePath.ForeColor = Color.Tomato;
-                this.ChangeImagePath.ForeColor = Color.Tomato;
-                this.RemoveImage.ForeColor = Color.Tomato;
-                this.ChangeColor.ForeColor = Color.Tomato;
-            }
-
-            this.bar.BackColor = this.BackgroundPanel.BackColor;
-            this.ChangePath.BackColor = this.BackgroundPanel.BackColor;
-            this.ChangeImagePath.BackColor = this.BackgroundPanel.BackColor;
+            
         }
 
         /// <summary>
@@ -56,8 +34,8 @@ namespace AppLauncher
         /// </summary>
         private void SetupWindow()
         {
-            //this.DisplayName.Text = AppButton.DisplayName;
-            
+            this.DisplayName.Text = AppButton.App.DisplayName;
+
         }
 
         /*
@@ -84,7 +62,8 @@ namespace AppLauncher
 
         */
 
-        /*
+
+
         private void ChangeImagePath_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -93,17 +72,16 @@ namespace AppLauncher
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 //If a shortcut background image exists, it must be deleted first.
-                if (!string.IsNullOrEmpty(this.AppButton.ImagePath))
+                if (!string.IsNullOrEmpty(this.AppButton.App.ImagePath))
                 {
                     this.AppButton.DisposeBG();
                 }
 
-                this.AppButton.ImagePath = CreateApp.CreateCopyInCache(dialog.FileName, this.AppButton.ID);
+                this.AppButton.App.ImagePath = GlobalFunctions.CreateCopyInCache(dialog.FileName, this.AppButton.ID);
             }
         }
 
-        */
-
+        
         /// <summary>
         /// In case the user double clicks on a shortcut title, they'll be able to rename it.
         /// </summary>
@@ -112,8 +90,7 @@ namespace AppLauncher
             this.DisplayName.ReadOnly = false;
         }
 
-
-        /*
+    
         /// <summary>
         /// In case the user is done typing the new name, they can press enter to set it.
         /// </summary>
@@ -121,8 +98,8 @@ namespace AppLauncher
         {
             if (e.KeyCode == Keys.Enter)
             {
-                this.AppButton.DisplayName = this.DisplayName.Text;
-                this.AppButton.Button.Text = this.AppButton.DisplayName;
+                this.AppButton.App.DisplayName = this.DisplayName.Text;
+                this.AppButton.Button.Text = this.AppButton.App.DisplayName;
                 this.DisplayName.ReadOnly = true;
             }
         }
@@ -139,7 +116,7 @@ namespace AppLauncher
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                this.AppButton.ExecutablePath = dialog.FileName;
+                this.AppButton.App.ExecutablePath = dialog.FileName;
             }
         }
         
@@ -148,37 +125,11 @@ namespace AppLauncher
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                this.AppButton.DisplayColor = colorDialog1.Color;
+                this.AppButton.App.DisplayColor = colorDialog1.Color;
             }
         }
 
-        */
+        
 
-
-        //Dragging events
-        private void bar_MouseDown(object sender, MouseEventArgs e)
-        {
-            dragging = true;
-            startPoint = e.Location;
-
-        }
-        private void bar_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                this.Location = new Point((this.Location.X - startPoint.X) + e.X, (this.Location.Y - startPoint.Y) + e.Y);
-                this.Update();
-            }
-        }
-        private void bar_MouseUp(object sender, MouseEventArgs e)
-        {
-            dragging = false;
-        }
-
-
-        private void RemoveImage_Click(object sender, EventArgs e)
-        {
-            //this.AppButton.DisposeBG();
-        }
     }
 }

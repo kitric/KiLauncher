@@ -101,7 +101,7 @@ namespace AppLauncher.UserControls.Pages
             this.SearchBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchBar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBar.ForeColor = System.Drawing.Color.DarkGray;
-            this.SearchBar.Location = new System.Drawing.Point(689, 11);
+            this.SearchBar.Location = new System.Drawing.Point(689, -13);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(200, 16);
             this.SearchBar.TabIndex = 19;
@@ -119,6 +119,8 @@ namespace AppLauncher.UserControls.Pages
             this.Grid.Name = "Grid";
             this.Grid.Size = new System.Drawing.Size(804, 436);
             this.Grid.TabIndex = 12;
+            this.Grid.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Grid_ControlAdded);
+            this.Grid.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Grid_ControlRemoved);
             // 
             // sortDown_Arrow
             // 
@@ -140,7 +142,7 @@ namespace AppLauncher.UserControls.Pages
             this.SortUp_Arrow.TabStop = false;
             this.SortUp_Arrow.Click += new System.EventHandler(this.SortUpArrow_Click);
             // 
-            // MainPage
+            // AppPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -152,7 +154,7 @@ namespace AppLauncher.UserControls.Pages
             this.Controls.Add(this.CreateApp);
             this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.Grid);
-            this.Name = "MainPage";
+            this.Name = "AppPage";
             this.Size = new System.Drawing.Size(895, 494);
             this.Grid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sortDown_Arrow)).EndInit();
