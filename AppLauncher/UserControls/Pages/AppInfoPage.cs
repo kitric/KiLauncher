@@ -148,9 +148,21 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        #endregion
-
         private void RemoveImage_Click(object sender, EventArgs e) => this.AppButton.DisposeBG();
+
+        private void DeleteApp_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show($"Are you sure you want to delete \"{this.AppButton.App.DisplayName}\"?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                this.AppButton.DisposeBG();
+
+                MainScreen.Apps.Remove(this.AppButton.App);
+                this.AppButton.Dispose();
+
+                GlobalFunctions.SwitchTo<AppPage>(MainScreen.Instance.Content);
+            }
+        }
+        #endregion
     }
 }
 

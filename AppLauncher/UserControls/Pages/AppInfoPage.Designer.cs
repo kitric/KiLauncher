@@ -35,18 +35,19 @@ namespace AppLauncher.UserControls.Pages
             this.RemoveImage = new System.Windows.Forms.Button();
             this.ChangeColor = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.DeleteApp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DisplayName
             // 
             this.DisplayName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.DisplayName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DisplayName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplayName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisplayName.ForeColor = System.Drawing.Color.White;
             this.DisplayName.Location = new System.Drawing.Point(0, 13);
             this.DisplayName.Name = "DisplayName";
             this.DisplayName.ReadOnly = true;
-            this.DisplayName.Size = new System.Drawing.Size(895, 22);
+            this.DisplayName.Size = new System.Drawing.Size(895, 20);
             this.DisplayName.TabIndex = 11;
             this.DisplayName.Text = "text";
             this.DisplayName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -61,7 +62,7 @@ namespace AppLauncher.UserControls.Pages
             this.ChangePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangePath.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePath.ForeColor = System.Drawing.Color.White;
-            this.ChangePath.Location = new System.Drawing.Point(182, 157);
+            this.ChangePath.Location = new System.Drawing.Point(182, 135);
             this.ChangePath.Name = "ChangePath";
             this.ChangePath.Size = new System.Drawing.Size(526, 28);
             this.ChangePath.TabIndex = 12;
@@ -75,9 +76,9 @@ namespace AppLauncher.UserControls.Pages
             this.ChangeImagePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangeImagePath.FlatAppearance.BorderSize = 0;
             this.ChangeImagePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeImagePath.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeImagePath.ForeColor = System.Drawing.Color.White;
-            this.ChangeImagePath.Location = new System.Drawing.Point(182, 206);
+            this.ChangeImagePath.Location = new System.Drawing.Point(182, 183);
             this.ChangeImagePath.Name = "ChangeImagePath";
             this.ChangeImagePath.Size = new System.Drawing.Size(530, 29);
             this.ChangeImagePath.TabIndex = 13;
@@ -91,9 +92,9 @@ namespace AppLauncher.UserControls.Pages
             this.RemoveImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.RemoveImage.FlatAppearance.BorderSize = 0;
             this.RemoveImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveImage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RemoveImage.ForeColor = System.Drawing.Color.White;
-            this.RemoveImage.Location = new System.Drawing.Point(185, 257);
+            this.RemoveImage.Location = new System.Drawing.Point(185, 232);
             this.RemoveImage.Name = "RemoveImage";
             this.RemoveImage.Size = new System.Drawing.Size(527, 29);
             this.RemoveImage.TabIndex = 16;
@@ -107,9 +108,9 @@ namespace AppLauncher.UserControls.Pages
             this.ChangeColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangeColor.FlatAppearance.BorderSize = 0;
             this.ChangeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeColor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeColor.ForeColor = System.Drawing.Color.White;
-            this.ChangeColor.Location = new System.Drawing.Point(185, 309);
+            this.ChangeColor.Location = new System.Drawing.Point(185, 281);
             this.ChangeColor.Name = "ChangeColor";
             this.ChangeColor.Size = new System.Drawing.Size(527, 29);
             this.ChangeColor.TabIndex = 17;
@@ -117,11 +118,28 @@ namespace AppLauncher.UserControls.Pages
             this.ChangeColor.UseVisualStyleBackColor = false;
             this.ChangeColor.Click += new System.EventHandler(this.ChangeColor_Click);
             // 
+            // DeleteApp
+            // 
+            this.DeleteApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.DeleteApp.FlatAppearance.BorderSize = 0;
+            this.DeleteApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteApp.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.DeleteApp.Location = new System.Drawing.Point(185, 330);
+            this.DeleteApp.Name = "DeleteApp";
+            this.DeleteApp.Size = new System.Drawing.Size(527, 29);
+            this.DeleteApp.TabIndex = 18;
+            this.DeleteApp.Text = "Delete ";
+            this.DeleteApp.UseVisualStyleBackColor = false;
+            this.DeleteApp.Click += new System.EventHandler(this.DeleteApp_Click);
+            // 
             // AppInfoPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.DeleteApp);
             this.Controls.Add(this.ChangeColor);
             this.Controls.Add(this.RemoveImage);
             this.Controls.Add(this.ChangeImagePath);
@@ -142,5 +160,6 @@ namespace AppLauncher.UserControls.Pages
         private System.Windows.Forms.Button RemoveImage;
         private System.Windows.Forms.Button ChangeColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button DeleteApp;
     }
 }
