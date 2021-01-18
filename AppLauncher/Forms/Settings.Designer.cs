@@ -45,14 +45,14 @@ namespace AppLauncher
             // 
             // BackgroundPanel
             // 
-            this.BackgroundPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(50)))));
+            this.BackgroundPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.BackgroundPanel.Controls.Add(this.Save);
             this.BackgroundPanel.Controls.Add(this.Theme);
             this.BackgroundPanel.Controls.Add(this.label2);
             this.BackgroundPanel.Controls.Add(this.label1);
-            this.BackgroundPanel.Location = new System.Drawing.Point(0, 25);
+            this.BackgroundPanel.Location = new System.Drawing.Point(0, 18);
             this.BackgroundPanel.Name = "BackgroundPanel";
-            this.BackgroundPanel.Size = new System.Drawing.Size(659, 430);
+            this.BackgroundPanel.Size = new System.Drawing.Size(659, 437);
             this.BackgroundPanel.TabIndex = 0;
             // 
             // Save
@@ -61,7 +61,7 @@ namespace AppLauncher
             this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Save.ForeColor = System.Drawing.Color.White;
-            this.Save.Location = new System.Drawing.Point(0, 395);
+            this.Save.Location = new System.Drawing.Point(0, 401);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(659, 32);
             this.Save.TabIndex = 3;
@@ -113,7 +113,7 @@ namespace AppLauncher
             this.bar.Controls.Add(this.MinimizeButton);
             this.bar.Location = new System.Drawing.Point(0, 0);
             this.bar.Name = "bar";
-            this.bar.Size = new System.Drawing.Size(659, 27);
+            this.bar.Size = new System.Drawing.Size(659, 19);
             this.bar.TabIndex = 11;
             this.bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bar_MouseDown);
             this.bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.bar_MouseMove);
@@ -124,7 +124,7 @@ namespace AppLauncher
             this.CloseSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.CloseSettings.Image = global::AppLauncher.Properties.Resources.closeApp;
-            this.CloseSettings.Location = new System.Drawing.Point(640, 4);
+            this.CloseSettings.Location = new System.Drawing.Point(640, 2);
             this.CloseSettings.Name = "CloseSettings";
             this.CloseSettings.Size = new System.Drawing.Size(16, 16);
             this.CloseSettings.TabIndex = 2;
@@ -140,7 +140,7 @@ namespace AppLauncher
             this.MinimizeButton.Image = global::AppLauncher.Properties.Resources.MinimizeButton;
             this.MinimizeButton.Location = new System.Drawing.Point(900, 2);
             this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(25, 24);
+            this.MinimizeButton.Size = new System.Drawing.Size(25, 16);
             this.MinimizeButton.TabIndex = 1;
             this.MinimizeButton.UseVisualStyleBackColor = true;
             // 
