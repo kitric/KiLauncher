@@ -119,8 +119,6 @@ namespace AppLauncher.UserControls.Pages
             this.Grid.Name = "Grid";
             this.Grid.Size = new System.Drawing.Size(804, 436);
             this.Grid.TabIndex = 12;
-            this.Grid.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Grid_ControlAdded);
-            this.Grid.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Grid_ControlRemoved);
             // 
             // sortDown_Arrow
             // 

@@ -36,6 +36,7 @@ namespace AppLauncher.UserControls.Pages
                     this.ChangeImagePath.BackColor = Color.FromArgb(20, 20, 20);
                     this.ChangeColor.BackColor = Color.FromArgb(20, 20, 20);
                     this.RemoveImage.BackColor = Color.FromArgb(20, 20, 20);
+                    this.DeleteApp.BackColor = Color.FromArgb(20, 20, 20);
                     break;
 
                 case "Light":
@@ -46,6 +47,7 @@ namespace AppLauncher.UserControls.Pages
                     this.ChangeImagePath.BackColor = this.BackColor;
                     this.ChangePath.BackColor = this.BackColor;
                     this.RemoveImage.BackColor = this.BackColor;
+                    this.DeleteApp.BackColor = this.BackColor;
 
                     this.DisplayName.ForeColor = Color.Tomato;
                     this.ChangeColor.ForeColor = Color.Tomato;

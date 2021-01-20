@@ -86,7 +86,7 @@ namespace AppLauncher.UserControls.Pages
             // If the query is empty, no need to execute this at all.
             if (!string.IsNullOrEmpty(query))
             {
-                this.Grid.Controls.Clear();
+                ClearButtons(false); 
 
                 foreach (App p in MainScreen.Apps)
                 {
@@ -104,7 +104,7 @@ namespace AppLauncher.UserControls.Pages
             }
             else // Adds all buttons to the list, again.
             {
-                this.Grid.Controls.Clear();
+                ClearButtons(false);
 
                 MainScreen.Apps.ForEach(x => Grid.Controls.Add(new AppButton(x)));
             }
@@ -218,8 +218,6 @@ namespace AppLauncher.UserControls.Pages
                 // Ensures everything is disposed by calling the garbage collector.
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-
-                this.Clear.Enabled = false;
             }
         }
 
@@ -228,18 +226,6 @@ namespace AppLauncher.UserControls.Pages
             this.Grid.Controls.Remove(Label);
             HandleSearch(this.SearchBar.Text);
         }
-
-        private void Grid_ControlAdded(object sender, ControlEventArgs e) => this.Clear.Enabled = e.Control.GetType() != typeof(Label);
-
         #endregion
-
-        private void Grid_ControlRemoved(object sender, ControlEventArgs e)
-        {
-            if (Grid.Controls.Count == 0)
-            {
-                this.Grid.Controls.Add(Label);
-               
-            }
-        }
     }
 }

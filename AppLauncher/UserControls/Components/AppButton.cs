@@ -16,7 +16,8 @@ namespace AppLauncher.UserControls.Components
         /// <summary>
         /// Used for identification.
         /// </summary>
-        public int ID { get; set; }
+        internal int ID { get; set; }
+
 
         public AppButton(App app)
         {
@@ -28,6 +29,10 @@ namespace AppLauncher.UserControls.Components
             if (!string.IsNullOrEmpty(App.ImagePath))
             {
                 this.Button.Image = GlobalFunctions.ResizeImage(Image.FromFile(App.ImagePath), this.Button.Width, this.Button.Height);
+            
+            } else
+            {
+                ApplyTheme();
             }
 
             this.Button.ForeColor = App.DisplayColor;
@@ -65,6 +70,20 @@ namespace AppLauncher.UserControls.Components
             }
 
             this.App.ImagePath = null;
+        }
+
+
+        private void ApplyTheme()
+        {
+            switch (Properties.Settings.Default.Theme)
+            {
+                case "Dark": break;
+                case "Light":
+                    this.Button.BackColor = Color.FromArgb(215, 215, 215);
+                    break;
+
+                default: this.Button.BackColor = Color.FromArgb(65, 65, 80); break;
+            }
         }
 
 
