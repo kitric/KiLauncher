@@ -28,7 +28,7 @@ namespace AppLauncher.UserControls.Components
 
             if (!string.IsNullOrEmpty(App.ImagePath))
             {
-                this.Button.Image = GlobalFunctions.ResizeImage(Image.FromFile(App.ImagePath), this.Button.Width, this.Button.Height);
+                this.Button.Image = GlobalFunctions.CropImageCenter(App.ImagePath, this.Button);
             
             } else
             {

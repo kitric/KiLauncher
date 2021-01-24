@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -61,16 +60,15 @@ namespace AppLauncher.UserControls.Pages
         /// </summary>
         private void AddButtonsToGrid()
         {
-            foreach (App p in MainScreen.Apps)
-            {
-                AppButton btn = new AppButton(p);
-
-                this.Grid.Controls.Add(btn);
-            }
-
             // If there are buttons in the grid, remove the label.
             if (MainScreen.Apps.Count > 0)
             {
+                foreach (App p in MainScreen.Apps)
+                {
+                    AppButton btn = new AppButton(p);
+                    this.Grid.Controls.Add(btn);
+                }
+
                 this.Grid.Controls.Remove(Label);
             }
         }
@@ -86,7 +84,7 @@ namespace AppLauncher.UserControls.Pages
             // If the query is empty, no need to execute this at all.
             if (!string.IsNullOrEmpty(query))
             {
-                ClearButtons(false); 
+                ClearButtons(false);
 
                 foreach (App p in MainScreen.Apps)
                 {
@@ -110,7 +108,7 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        
+
         /// <summary>
         /// Clears all buttons from the grid.
         /// </summary>
@@ -143,22 +141,13 @@ namespace AppLauncher.UserControls.Pages
 
             // Clears everything to add them again.
             ClearButtons(false);
-            
+
             foreach (App p in MainScreen.Apps)
             {
                 Grid.Controls.Add(new AppButton(p));
             }
 
-            string name;
-            if (MainScreen.SortMode == SortMode.Name_Asc || MainScreen.SortMode == SortMode.Name_Desc)
-            {
-                name = MainScreen.SortMode.ToString().Replace("_", " ");
-            }
-            else
-            {
-                name = MainScreen.SortMode.ToString();
-            }
-
+            string name = MainScreen.SortMode.ToString().Replace("_", " ");
             this.SortModeLabel.Text = name;
         }
 
