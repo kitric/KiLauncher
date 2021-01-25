@@ -23,7 +23,7 @@ namespace AppLauncher.UserControls.Pages
 
         private void ApplyTheme()
         {
-            switch (Properties.Settings.Default.Theme)
+            switch (MainScreen.Data.Settings.Theme)
             {
                 case "Dark":
                     this.SearchBar.ForeColor = Color.Black;
@@ -61,9 +61,9 @@ namespace AppLauncher.UserControls.Pages
         private void AddButtonsToGrid()
         {
             // If there are buttons in the grid, remove the label.
-            if (MainScreen.Apps.Count > 0)
+            if (MainScreen.Data.Apps.Count > 0)
             {
-                foreach (App p in MainScreen.Apps)
+                foreach (App p in MainScreen.Data.Apps)
                 {
                     AppButton btn = new AppButton(p);
                     this.Grid.Controls.Add(btn);
@@ -86,7 +86,7 @@ namespace AppLauncher.UserControls.Pages
             {
                 ClearButtons(false);
 
-                foreach (App p in MainScreen.Apps)
+                foreach (App p in MainScreen.Data.Apps)
                 {
                     if (p.DisplayName.ToLower().Contains(query)) // Found you boi
                     {
@@ -104,7 +104,7 @@ namespace AppLauncher.UserControls.Pages
             {
                 ClearButtons(false);
 
-                MainScreen.Apps.ForEach(x => Grid.Controls.Add(new AppButton(x)));
+                MainScreen.Data.Apps.ForEach(x => Grid.Controls.Add(new AppButton(x)));
             }
         }
 
@@ -124,6 +124,8 @@ namespace AppLauncher.UserControls.Pages
                 btn.Dispose();
             }
 
+            if (!this.Grid.Controls.Contains(Label))
+                this.Grid.Controls.Add(Label);
         }
 
         /// <summary>
@@ -135,14 +137,14 @@ namespace AppLauncher.UserControls.Pages
 
             switch (MainScreen.SortMode)
             {
-                case SortMode.Name_Asc: MainScreen.Apps.Sort(MainScreen.SortByName_Asc); break;
-                case SortMode.Name_Desc: MainScreen.Apps.Sort(MainScreen.SortByName_Desc); break;
+                case SortMode.Name_Asc: MainScreen.Data.Apps.Sort(MainScreen.SortByName_Asc); break;
+                case SortMode.Name_Desc: MainScreen.Data.Apps.Sort(MainScreen.SortByName_Desc); break;
             }
 
             // Clears everything to add them again.
             ClearButtons(false);
 
-            foreach (App p in MainScreen.Apps)
+            foreach (App p in MainScreen.Data.Apps)
             {
                 Grid.Controls.Add(new AppButton(p));
             }
@@ -202,7 +204,7 @@ namespace AppLauncher.UserControls.Pages
             if (MessageBox.Show("Are you sure you want to delete all entries?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 ClearButtons(true);
-                MainScreen.Apps.Clear();
+                MainScreen.Data.Apps.Clear();
 
                 // Ensures everything is disposed by calling the garbage collector.
                 GC.Collect();

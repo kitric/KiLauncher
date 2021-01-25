@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AppLauncher.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -149,5 +151,45 @@ namespace AppLauncher
             return pathToWrite;
 
         }
+
+
+
+        #region serialization
+        internal static void DeserializeUserData()
+        {
+            string cachePath = GlobalFunctions.GetProgramAppdataFolder();
+            string fpath = Path.Combine(cachePath, "buttons.apl");
+
+            if (File.Exists(fpath))
+            {
+                using (FileStream fs = new FileStream(fpath, FileMode.Open))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    MainScreen.Data = (UserData)formatter.Deserialize(fs);
+                }
+            }
+            else
+            {
+                MainScreen.Data = new UserData();
+            }
+        }
+
+        /// <summary>
+        /// This function works both as a way to serialize data to the .apl file
+        /// and as a way to export data to a file.
+        /// 
+        /// If no argument is passed, the code will serialize data to the default .apl file. 
+        /// otherwise serializes it to a different .apl file.
+        /// </summary>
+        /// <param name="fPath"></param>
+        public static void SerializeOrExportUserData(string fPath="")
+        {
+            using (FileStream fs = new FileStream((fPath == "" ? Path.Combine(GetProgramAppdataFolder(), "buttons.apl") : fPath), FileMode.OpenOrCreate))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(fs, MainScreen.Data);
+            }
+        }
+        #endregion
     }
 }

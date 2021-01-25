@@ -25,7 +25,7 @@ namespace AppLauncher.UserControls.Pages
 
         private void ApplyTheme()
         {
-            switch (Properties.Settings.Default.Theme)
+            switch (MainScreen.Data.Settings.Theme)
             {
                 case "Dark":
                     this.BackColor = Color.FromArgb(20, 20, 20);
@@ -84,11 +84,12 @@ namespace AppLauncher.UserControls.Pages
             {
                 App app = new App(this.PathText.Text, this.DisplayName.Text, SelectedColor);
                 //Creates a new copy in the app cache if an image is specified.
-                app.ImagePath = !string.IsNullOrEmpty(this.ImagePathText.Text) ? GlobalFunctions.CreateCopyInCache(this.ImagePathText.Text, app.ID) : "";
+                app.ImagePath = !string.IsNullOrEmpty(this.ImagePathText.Text) ? 
+                    GlobalFunctions.CreateCopyInCache(this.ImagePathText.Text, app.ID) : "";
 
-                MainScreen.Apps.Add(app);
+                MainScreen.Data.Apps.Add(app);
 
-                GlobalFunctions.SwitchTo<AppPage>(MainScreen.Instance.Content);
+                GlobalFunctions.SwitchTo<AppPage>(MainScreen.Instance.Content, args: new object[] { });
             }
             else
             {

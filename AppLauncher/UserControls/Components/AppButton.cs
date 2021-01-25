@@ -75,7 +75,7 @@ namespace AppLauncher.UserControls.Components
 
         private void ApplyTheme()
         {
-            switch (Properties.Settings.Default.Theme)
+            switch (MainScreen.Data.Settings.Theme)
             {
                 case "Dark": break;
                 case "Light":
@@ -101,7 +101,7 @@ namespace AppLauncher.UserControls.Components
                 rand = random.Next(int.MaxValue - 5);
 
                 //Loops for all created buttons. Checks if the generated ID already exists.
-                foreach (App x in MainScreen.Apps)
+                foreach (App x in MainScreen.Data.Apps)
                 {
                     if (x.ID == rand)
                     {
@@ -110,7 +110,7 @@ namespace AppLauncher.UserControls.Components
                     }
                 }
 
-                if (!found) { break; }
+                if (!found) break; 
             }
             this.ID = rand;
         }

@@ -26,7 +26,7 @@ namespace AppLauncher.UserControls.Pages
 
         private void ApplyTheme()
         {
-            switch (Properties.Settings.Default.Theme)
+            switch (MainScreen.Data.Settings.Theme)
             {
                 case "Dark":
                     this.BackColor = Color.FromArgb(20, 20, 20);
@@ -73,7 +73,7 @@ namespace AppLauncher.UserControls.Pages
         {
             if (MessageBox.Show("Are you sure you want to delete this entry?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                MainScreen.Apps.Remove(this.AppButton.App);
+                MainScreen.Data.Apps.Remove(this.AppButton.App);
 
                 //If the shortcut has a background image.
                 if (this.AppButton.Button.BackgroundImage != null)
@@ -158,7 +158,7 @@ namespace AppLauncher.UserControls.Pages
             {
                 this.AppButton.DisposeBG();
 
-                MainScreen.Apps.Remove(this.AppButton.App);
+                MainScreen.Data.Apps.Remove(this.AppButton.App);
                 this.AppButton.Dispose();
 
                 GlobalFunctions.SwitchTo<AppPage>(MainScreen.Instance.Content);

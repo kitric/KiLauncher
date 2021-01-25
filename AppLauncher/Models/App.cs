@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Windows.Forms;
 
 namespace AppLauncher
 {
@@ -15,7 +10,7 @@ namespace AppLauncher
     public class App
     {
         #region fields
-        public Color DisplayColor{ get; set; }
+        public Color DisplayColor { get; set; }
 
         public string ExecutablePath { get; set; }
 
@@ -46,19 +41,19 @@ namespace AppLauncher
 
         /// <summary>
         /// Creates an unique ID for each shortcut.
-        /// Might need to refactor this later.
         /// </summary>
         private void CreateID()
         {
+            bool found;
             int rand;
-            bool found = false;
-
-            while (true)
+            
+            do
             {
+                found = false;
                 rand = random.Next(int.MaxValue - 5);
 
                 //Loops for all created buttons. Checks if the generated ID already exists.
-                foreach (App x in MainScreen.Apps)
+                foreach (App x in MainScreen.Data.Apps)
                 {
                     if (x.ID == rand)
                     {
@@ -67,8 +62,8 @@ namespace AppLauncher
                     }
                 }
 
-                if (!found) { break; }
-            }
+            } while (found);
+
             this.ID = rand;
         }
     }

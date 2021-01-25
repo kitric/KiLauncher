@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.bar = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.PictureBox();
@@ -37,6 +38,7 @@
             this.Sidebar = new System.Windows.Forms.Panel();
             this.HomeLB = new System.Windows.Forms.Label();
             this.SettingsLB = new System.Windows.Forms.Label();
+            this.Animator = new System.Windows.Forms.Timer(this.components);
             this.bar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             this.Sidebar.SuspendLayout();
@@ -95,7 +97,7 @@
             this.AppsLB.Size = new System.Drawing.Size(117, 23);
             this.AppsLB.TabIndex = 14;
             this.AppsLB.Text = "Your Apps";
-            this.AppsLB.Click += new System.EventHandler(this.HomeLB_Click);
+            this.AppsLB.Click += new System.EventHandler(this.AppsLB_Click);
             // 
             // Sidebar
             // 
@@ -118,7 +120,7 @@
             this.HomeLB.Size = new System.Drawing.Size(117, 23);
             this.HomeLB.TabIndex = 16;
             this.HomeLB.Text = "Home";
-            this.HomeLB.Click += new System.EventHandler(this.HomeLB_Click_1);
+            this.HomeLB.Click += new System.EventHandler(this.HomeLB_Click);
             // 
             // SettingsLB
             // 
@@ -130,6 +132,11 @@
             this.SettingsLB.TabIndex = 15;
             this.SettingsLB.Text = "Settings";
             this.SettingsLB.Click += new System.EventHandler(this.SettingsLB_Click);
+            // 
+            // Animator
+            // 
+            this.Animator.Interval = 10;
+            this.Animator.Tick += new System.EventHandler(this.OpenAnimation);
             // 
             // MainScreen
             // 
@@ -143,7 +150,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainScreen";
-            this.Text = "Hard Launcher";
+            this.Text = "KiLauncher";
+            this.Load += new System.EventHandler(this.MainScreen_Load);
+            this.Shown += new System.EventHandler(this.MainScreen_Shown);
             this.bar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).EndInit();
             this.Sidebar.ResumeLayout(false);
@@ -161,6 +170,7 @@
         private System.Windows.Forms.Panel Sidebar;
         private System.Windows.Forms.Label SettingsLB;
         private System.Windows.Forms.Label HomeLB;
+        private System.Windows.Forms.Timer Animator;
     }
 }
 

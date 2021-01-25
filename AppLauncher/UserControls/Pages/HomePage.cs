@@ -20,7 +20,7 @@ namespace AppLauncher.UserControls.Pages
 
         private void ApplyTheme()
         {
-            switch (Properties.Settings.Default.Theme)
+            switch (MainScreen.Data.Settings.Theme)
             {
                 case "Dark":
                     this.NordicBtn.BackColor = Color.FromArgb(19, 19, 19); 
