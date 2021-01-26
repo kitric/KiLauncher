@@ -29,8 +29,9 @@ namespace AppLauncher.UserControls.Components
             if (!string.IsNullOrEmpty(App.ImagePath))
             {
                 this.Button.Image = GlobalFunctions.CropImageCenter(App.ImagePath, this.Button);
-            
-            } else
+
+            }
+            else
             {
                 ApplyTheme();
             }
@@ -110,7 +111,7 @@ namespace AppLauncher.UserControls.Components
                     }
                 }
 
-                if (!found) break; 
+                if (!found) break;
             }
             this.ID = rand;
         }

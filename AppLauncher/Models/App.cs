@@ -46,7 +46,7 @@ namespace AppLauncher
         {
             bool found;
             int rand;
-            
+
             do
             {
                 found = false;

@@ -2,11 +2,8 @@
 using AppLauncher.Models;
 using AppLauncher.UserControls.Pages;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppLauncher
@@ -27,7 +24,7 @@ namespace AppLauncher
         private bool dragging;
         private Point startPoint;
 
-        
+
         public static MainScreen Instance;
 
         public MainScreen()
@@ -86,8 +83,9 @@ namespace AppLauncher
             if (Data.Settings.Animations)
             {
                 Animator.Start();
-            
-            } else
+
+            }
+            else
             {
                 Application.Exit();
             }
@@ -165,8 +163,9 @@ namespace AppLauncher
             if (this.Opacity > 0)
             {
                 this.Opacity -= 0.06;
-            
-            } else
+
+            }
+            else
             {
                 this.Animator.Stop();
                 Application.Exit();

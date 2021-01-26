@@ -1,14 +1,10 @@
 ﻿using AppLauncher.Models;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppLauncher
@@ -164,7 +160,7 @@ namespace AppLauncher
         /// otherwise deserializes data from a different .apl file (imports data).
         /// </summary>
         /// <param name="fPath"></param>
-        internal static void DeserializeUserData(string fPath="")
+        internal static void DeserializeUserData(string fPath = "")
         {
             string path = (fPath == "" ? Path.Combine(GetProgramAppdataFolder(), "buttons.apl") : fPath);
 
@@ -190,7 +186,7 @@ namespace AppLauncher
         /// otherwise serializes data to a different .apl file (exports data).
         /// </summary>
         /// <param name="fPath"></param>
-        internal static void SerializeOrExportUserData(string fPath="")
+        internal static void SerializeOrExportUserData(string fPath = "")
         {
             string path = (fPath == "" ? Path.Combine(GetProgramAppdataFolder(), "buttons.apl") : fPath);
 

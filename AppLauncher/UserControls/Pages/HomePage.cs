@@ -14,16 +14,16 @@ namespace AppLauncher.UserControls.Pages
         }
 
         private void NordicBtn_Click(object sender, EventArgs e) => Process.Start("https://github.com/nordic16");
-        
+
         private void crxssedBtn_Click(object sender, EventArgs e) => Process.Start("https://github.com/crxssed7");
-        
+
 
         private void ApplyTheme()
         {
             switch (MainScreen.Data.Settings.Theme)
             {
                 case "Dark":
-                    this.NordicBtn.BackColor = Color.FromArgb(19, 19, 19); 
+                    this.NordicBtn.BackColor = Color.FromArgb(19, 19, 19);
                     this.crxssedBtn.BackColor = Color.FromArgb(19, 19, 19);
                     break;
 

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppLauncher.Forms
@@ -36,10 +29,9 @@ namespace AppLauncher.Forms
         }
         #endregion
 
-
         private void ImportData()
         {
-            if (MessageBox.Show("Are you sure you want to import data?\nYour current data will be lost.", "Import data", MessageBoxButtons.YesNo, 
+            if (MessageBox.Show("Are you sure you want to import data?\nYour current data will be lost.", "Import data", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 OpenFileDialog dialog = new OpenFileDialog();
@@ -59,7 +51,7 @@ namespace AppLauncher.Forms
 
         private void ExportData()
         {
-            if (MessageBox.Show("Are you sure you want to export your data?", "Export data", MessageBoxButtons.YesNo, 
+            if (MessageBox.Show("Are you sure you want to export your data?", "Export data", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 SaveFileDialog dialog = new SaveFileDialog();

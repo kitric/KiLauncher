@@ -1,13 +1,6 @@
 ﻿using AppLauncher.UserControls.Components;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppLauncher.UserControls.Pages
@@ -67,7 +60,7 @@ namespace AppLauncher.UserControls.Pages
 
         }
 
-        
+
         #region events
         private void DeleteProcess_Click(object sender, EventArgs e)
         {
@@ -85,7 +78,7 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        
+
         private void ChangeImagePath_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -103,7 +96,7 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        
+
         /// <summary>
         /// In case the user double clicks on a shortcut title, they'll be able to rename it.
         /// </summary>
@@ -112,7 +105,7 @@ namespace AppLauncher.UserControls.Pages
             this.DisplayName.ReadOnly = false;
         }
 
-    
+
         /// <summary>
         /// In case the user is done typing the new name, they can press enter to set it.
         /// </summary>
@@ -141,7 +134,7 @@ namespace AppLauncher.UserControls.Pages
                 this.AppButton.App.ExecutablePath = dialog.FileName;
             }
         }
-        
+
         private void ChangeColor_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)

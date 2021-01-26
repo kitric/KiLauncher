@@ -9,7 +9,8 @@ namespace AppLauncher.Models
         public List<App> Apps { get; set; }
         public Settings Settings { get; set; }
 
-        public UserData() {
+        public UserData()
+        {
             this.Apps = new List<App>();
             this.Settings = new Settings("Light");
         }

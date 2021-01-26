@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppLauncher.UserControls.Pages
@@ -67,7 +60,7 @@ namespace AppLauncher.UserControls.Pages
 
                     break;
 
-            }            
+            }
         }
 
 
@@ -84,7 +77,7 @@ namespace AppLauncher.UserControls.Pages
             {
                 App app = new App(this.PathText.Text, this.DisplayName.Text, SelectedColor);
                 //Creates a new copy in the app cache if an image is specified.
-                app.ImagePath = !string.IsNullOrEmpty(this.ImagePathText.Text) ? 
+                app.ImagePath = !string.IsNullOrEmpty(this.ImagePathText.Text) ?
                     GlobalFunctions.CreateCopyInCache(this.ImagePathText.Text, app.ID) : "";
 
                 MainScreen.Data.Apps.Add(app);
