@@ -18,24 +18,10 @@ namespace AppLauncher.Forms
             RestoreSettings();
         }
 
-        private void ExportDataBtn_Click(object sender, EventArgs e)
-        {
-            ExportData();
-        }
+        #region events
+        private void ExportDataBtn_Click(object sender, EventArgs e) => ExportData();
 
-        private void ExportData()
-        {
-            if (MessageBox.Show("Are you sure you want to export your data?", "Export data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                SaveFileDialog dialog = new SaveFileDialog();
-                dialog.Filter = "*.apl files (*.apl)";
-
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    GlobalFunctions.SerializeOrExportUserData(dialog.FileName);
-                }
-            }
-        }
+        private void ImportDataBtn_Click(object sender, EventArgs e) => ImportData();
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
@@ -48,11 +34,50 @@ namespace AppLauncher.Forms
 
             Application.Restart();
         }
+        #endregion
+
+
+        private void ImportData()
+        {
+            if (MessageBox.Show("Are you sure you want to import data?\nYour current data will be lost.", "Import data", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "apl files (*.apl)|*.apl";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    GlobalFunctions.DeserializeUserData(dialog.FileName);
+
+                    MessageBox.Show("Data has been imported. The app will now restart.");
+
+                    GlobalFunctions.SerializeOrExportUserData();
+                    Application.Restart();
+                }
+            }
+        }
+
+        private void ExportData()
+        {
+            if (MessageBox.Show("Are you sure you want to export your data?", "Export data", MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                SaveFileDialog dialog = new SaveFileDialog();
+                dialog.Filter = "apl files (*.apl)|*.apl";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    GlobalFunctions.SerializeOrExportUserData(dialog.FileName);
+                }
+            }
+        }
 
         private void RestoreSettings()
         {
             this.Theme.Text = MainScreen.Data.Settings.Theme;
             this.Animations.Checked = MainScreen.Data.Settings.Animations;
         }
+
+
     }
 }

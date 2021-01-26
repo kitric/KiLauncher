@@ -44,6 +44,8 @@ namespace AppLauncher.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SettingsPage.SuspendLayout();
             this.AppSettings.SuspendLayout();
             this.DataPage.SuspendLayout();
@@ -89,7 +91,8 @@ namespace AppLauncher.Forms
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Location = new System.Drawing.Point(286, 176);
+            this.SaveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveBtn.Location = new System.Drawing.Point(285, 176);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 23);
             this.SaveBtn.TabIndex = 3;
@@ -102,7 +105,7 @@ namespace AppLauncher.Forms
             this.Theme.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Theme.Items.Add("Light");
             this.Theme.Items.Add("Dark");
-            this.Theme.Location = new System.Drawing.Point(48, 13);
+            this.Theme.Location = new System.Drawing.Point(48, 16);
             this.Theme.Name = "Theme";
             this.Theme.Size = new System.Drawing.Size(120, 16);
             this.Theme.TabIndex = 1;
@@ -137,6 +140,7 @@ namespace AppLauncher.Forms
             this.ImportDataBtn.TabIndex = 1;
             this.ImportDataBtn.Text = "Import Data";
             this.ImportDataBtn.UseVisualStyleBackColor = true;
+            this.ImportDataBtn.Click += new System.EventHandler(this.ImportDataBtn_Click);
             // 
             // ExportDataBtn
             // 
@@ -161,6 +165,8 @@ namespace AppLauncher.Forms
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -172,7 +178,7 @@ namespace AppLauncher.Forms
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(4, 86);
+            this.label4.Location = new System.Drawing.Point(5, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(365, 32);
             this.label4.TabIndex = 3;
@@ -206,13 +212,32 @@ namespace AppLauncher.Forms
             this.label1.Text = "How do I clear the cache?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(4, 147);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(365, 42);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Let\'s say you have 2 PC\'s, and you use KiLauncher on both....\r\nYou can use export" +
+    " data on the PC that has the desired data, then import it on the outdated one.\r\n" +
+    "";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(2, 127);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(368, 15);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Exporting data? What even is that?!";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 232);
             this.Controls.Add(this.SettingsPage);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SettingsForm";
             this.Text = "Settings";
             this.SettingsPage.ResumeLayout(false);
@@ -242,5 +267,7 @@ namespace AppLauncher.Forms
         private System.Windows.Forms.Button ExportDataBtn;
         private System.Windows.Forms.Button ImportDataBtn;
         private System.Windows.Forms.CheckBox Animations;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
