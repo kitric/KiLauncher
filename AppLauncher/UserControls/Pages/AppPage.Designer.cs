@@ -117,7 +117,7 @@ namespace AppLauncher.UserControls.Pages
             this.Grid.Controls.Add(this.Label);
             this.Grid.Location = new System.Drawing.Point(88, 58);
             this.Grid.Name = "Grid";
-            this.Grid.Size = new System.Drawing.Size(804, 436);
+            this.Grid.Size = new System.Drawing.Size(836, 436);
             this.Grid.TabIndex = 12;
             // 
             // sortDown_Arrow
@@ -154,6 +154,7 @@ namespace AppLauncher.UserControls.Pages
             this.Controls.Add(this.Grid);
             this.Name = "AppPage";
             this.Size = new System.Drawing.Size(895, 494);
+            this.Load += new System.EventHandler(this.AppPage_Load);
             this.Grid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sortDown_Arrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SortUp_Arrow)).EndInit();

@@ -12,13 +12,10 @@ namespace AppLauncher.UserControls.Pages
         public AppPage()
         {
             InitializeComponent();
+            ApplyTheme();
 
             this.SortModeLabel.Text = MainScreen.SortMode.ToString().Replace("_", " ");
 
-            ApplyTheme();
-
-            GlobalFunctions.HideScrollbars(Grid);
-            AddButtonsToGrid();
         }
 
         private void ApplyTheme()
@@ -119,13 +116,10 @@ namespace AppLauncher.UserControls.Pages
 
             foreach (AppButton btn in controls)
             {
-                if (clearCache) btn.DisposeBG();
+                if (clearCache) btn.DeleteBG();
 
                 btn.Dispose();
             }
-
-            if (!this.Grid.Controls.Contains(Label))
-                this.Grid.Controls.Add(Label);
         }
 
         /// <summary>
@@ -209,6 +203,9 @@ namespace AppLauncher.UserControls.Pages
                 // Ensures everything is disposed by calling the garbage collector.
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
+                            
+                if (!Grid.Controls.Contains(Label)) this.Grid.Controls.Add(Label);
+
             }
         }
 
@@ -218,5 +215,11 @@ namespace AppLauncher.UserControls.Pages
             HandleSearch(this.SearchBar.Text);
         }
         #endregion
+
+        private void AppPage_Load(object sender, EventArgs e)
+        {
+            GlobalFunctions.HideScrollbars(Grid);
+            AddButtonsToGrid();
+        }
     }
 }

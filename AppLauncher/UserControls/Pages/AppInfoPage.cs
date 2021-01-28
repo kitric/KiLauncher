@@ -71,7 +71,7 @@ namespace AppLauncher.UserControls.Pages
                 //If the shortcut has a background image.
                 if (this.AppButton.Button.BackgroundImage != null)
                 {
-                    this.AppButton.DisposeBG();
+                    this.AppButton.DeleteBG();
                 }
 
                 GlobalFunctions.SwitchTo<AppPage>(MainScreen.Instance.Content);
@@ -89,7 +89,7 @@ namespace AppLauncher.UserControls.Pages
                 //If a shortcut background image exists, it must be deleted first.
                 if (!string.IsNullOrEmpty(this.AppButton.App.ImagePath))
                 {
-                    this.AppButton.DisposeBG();
+                    this.AppButton.DeleteBG();
                 }
 
                 this.AppButton.App.ImagePath = GlobalFunctions.CreateCopyInCache(dialog.FileName, this.AppButton.ID);
@@ -143,13 +143,13 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        private void RemoveImage_Click(object sender, EventArgs e) => this.AppButton.DisposeBG();
+        private void RemoveImage_Click(object sender, EventArgs e) => this.AppButton.DeleteBG();
 
         private void DeleteApp_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show($"Are you sure you want to delete \"{this.AppButton.App.DisplayName}\"?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                this.AppButton.DisposeBG();
+                this.AppButton.DeleteBG();
 
                 MainScreen.Data.Apps.Remove(this.AppButton.App);
                 this.AppButton.Dispose();

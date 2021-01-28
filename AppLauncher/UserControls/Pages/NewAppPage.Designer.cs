@@ -57,7 +57,7 @@ namespace AppLauncher.UserControls.Pages
             this.button3.TabIndex = 23;
             this.button3.Text = "Set Display Color";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button4_Click);
+            this.button3.Click += new System.EventHandler(this.setDisplayColor_Click);
             // 
             // label4
             // 

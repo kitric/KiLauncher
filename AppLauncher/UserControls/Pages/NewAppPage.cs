@@ -59,7 +59,6 @@ namespace AppLauncher.UserControls.Pages
                     this.CreateProcessButton.BackColor = this.BackColor;
 
                     break;
-
             }
         }
 
@@ -100,7 +99,7 @@ namespace AppLauncher.UserControls.Pages
         {
             FileDialog dialog = new OpenFileDialog
             {
-                Filter = "exe files (*.exe)|*.exe|All files (*.*)|*.*|bat files (*.bat)|*.bat"
+                Filter = "exe files (*.exe)|*.exe|All files (*.*)|*.*|bat files (*.bat)|*.bat|vbs files (*.vbs)|*.vbs"
             };
 
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -127,7 +126,7 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void setDisplayColor_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {

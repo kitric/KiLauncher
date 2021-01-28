@@ -58,7 +58,7 @@ namespace AppLauncher.UserControls.Components
         /// <summary>
         /// Frees the background image used by a button.
         /// </summary>
-        public void DisposeBG()
+        public void DeleteBG()
         {
             this.Button.BackgroundImage = null;
 
@@ -95,10 +95,10 @@ namespace AppLauncher.UserControls.Components
         private void CreateID()
         {
             int rand;
-            bool found = false;
 
             while (true)
             {
+                bool found = false;
                 rand = random.Next(int.MaxValue - 5);
 
                 //Loops for all created buttons. Checks if the generated ID already exists.
