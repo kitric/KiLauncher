@@ -56,7 +56,7 @@ namespace AppLauncher.UserControls.Pages
         /// </summary>
         private void SetupWindow()
         {
-            this.DisplayName.Text = AppButton.App.DisplayName;
+            this.DisplayName.Text = AppButton.App.DisplayName == "-" || string.IsNullOrEmpty(AppButton.App.DisplayName) ? "-" : AppButton.App.DisplayName;
 
         }
 
@@ -69,7 +69,7 @@ namespace AppLauncher.UserControls.Pages
                 MainScreen.Data.Apps.Remove(this.AppButton.App);
 
                 //If the shortcut has a background image.
-                if (this.AppButton.Button.BackgroundImage != null)
+                if (this.AppButton.BackgroundImage != null)
                 {
                     this.AppButton.DeleteBG();
                 }
@@ -114,7 +114,7 @@ namespace AppLauncher.UserControls.Pages
             if (e.KeyCode == Keys.Enter)
             {
                 this.AppButton.App.DisplayName = this.DisplayName.Text;
-                this.AppButton.Button.Text = this.AppButton.App.DisplayName;
+                this.AppButton.DisplayName.Text = this.AppButton.App.DisplayName;
                 this.DisplayName.ReadOnly = true;
             }
         }

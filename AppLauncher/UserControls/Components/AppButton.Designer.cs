@@ -29,37 +29,50 @@ namespace AppLauncher.UserControls.Components
         /// </summary>
         private void InitializeComponent()
         {
-            this.Button = new System.Windows.Forms.Button();
+            this.BackgroundImage = new System.Windows.Forms.PictureBox();
+            this.DisplayName = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.BackgroundImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // Button
+            // BackgroundImage
             // 
-            this.Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.Button.FlatAppearance.BorderSize = 0;
-            this.Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Button.ForeColor = System.Drawing.Color.White;
-            this.Button.Location = new System.Drawing.Point(0, 0);
-            this.Button.Name = "Button";
-            this.Button.Size = new System.Drawing.Size(256, 144);
-            this.Button.TabIndex = 0;
-            this.Button.Text = "button1";
-            this.Button.UseVisualStyleBackColor = false;
-            this.Button.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_MouseDown);
+            this.BackgroundImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(80)))));
+            this.BackgroundImage.Location = new System.Drawing.Point(0, 0);
+            this.BackgroundImage.Name = "BackgroundImage";
+            this.BackgroundImage.Size = new System.Drawing.Size(256, 144);
+            this.BackgroundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.BackgroundImage.TabIndex = 0;
+            this.BackgroundImage.TabStop = false;
+            // 
+            // DisplayName
+            // 
+            this.DisplayName.BackColor = System.Drawing.Color.Transparent;
+            this.DisplayName.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplayName.ForeColor = System.Drawing.Color.White;
+            this.DisplayName.Location = new System.Drawing.Point(0, 0);
+            this.DisplayName.Name = "DisplayName";
+            this.DisplayName.Size = new System.Drawing.Size(256, 144);
+            this.DisplayName.TabIndex = 0;
+            this.DisplayName.Text = "label1";
+            this.DisplayName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DisplayName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DisplayName_MouseDown);
             // 
             // AppButton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Button);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(80)))));
+            this.Controls.Add(this.DisplayName);
+            this.Controls.Add(this.BackgroundImage);
             this.Name = "AppButton";
             this.Size = new System.Drawing.Size(256, 144);
+            ((System.ComponentModel.ISupportInitialize)(this.BackgroundImage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        internal System.Windows.Forms.Button Button;
+        internal System.Windows.Forms.Label DisplayName;
+        internal System.Windows.Forms.PictureBox BackgroundImage;
     }
 }

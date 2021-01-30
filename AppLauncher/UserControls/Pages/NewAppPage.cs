@@ -72,9 +72,11 @@ namespace AppLauncher.UserControls.Pages
         /// 
         private void CreateProcessButton_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.DisplayName.Text) && !string.IsNullOrEmpty(this.PathText.Text))
+            if (!string.IsNullOrEmpty(this.PathText.Text))
             {
-                App app = new App(this.PathText.Text, this.DisplayName.Text, SelectedColor);
+                string name = this.DisplayName.Text == "-" || string.IsNullOrEmpty(this.DisplayName.Text) ? "" : this.DisplayName.Text;
+
+                App app = new App(this.PathText.Text, name, SelectedColor);
                 //Creates a new copy in the app cache if an image is specified.
                 app.ImagePath = !string.IsNullOrEmpty(this.ImagePathText.Text) ?
                     GlobalFunctions.CreateCopyInCache(this.ImagePathText.Text, app.ID) : "";

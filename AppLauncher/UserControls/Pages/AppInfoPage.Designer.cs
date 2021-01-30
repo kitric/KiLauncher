@@ -49,7 +49,7 @@ namespace AppLauncher.UserControls.Pages
             this.DisplayName.ReadOnly = true;
             this.DisplayName.Size = new System.Drawing.Size(895, 20);
             this.DisplayName.TabIndex = 11;
-            this.DisplayName.Text = "text";
+            this.DisplayName.Text = "-";
             this.DisplayName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DisplayName.DoubleClick += new System.EventHandler(this.DisplayName_DoubleClick);
             this.DisplayName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DisplayName_Enter_Pressed);

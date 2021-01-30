@@ -24,24 +24,24 @@ namespace AppLauncher.UserControls.Components
             InitializeComponent();
 
             this.App = app;
-            this.Button.Text = App.DisplayName;
+            this.DisplayName.Text = App.DisplayName;
 
             if (!string.IsNullOrEmpty(App.ImagePath))
             {
-                this.Button.Image = GlobalFunctions.CropImageCenter(App.ImagePath, this.Button);
+                this.BackgroundImage.Image = GlobalFunctions.CropImageCenter(App.ImagePath, this.BackgroundImage);
 
             }
-            else
-            {
-                ApplyTheme();
-            }
+            
+            ApplyTheme();
 
-            this.Button.ForeColor = App.DisplayColor;
+            this.DisplayName.ForeColor = App.DisplayColor;
+
+            this.DisplayName.Parent = this.BackgroundImage;
 
             CreateID();
         }
 
-        private void Button_MouseDown(object sender, MouseEventArgs e)
+        private void DisplayName_MouseDown(object sender, MouseEventArgs e)
         {
             switch (e.Button)
             {
@@ -60,7 +60,7 @@ namespace AppLauncher.UserControls.Components
         /// </summary>
         public void DeleteBG()
         {
-            this.Button.BackgroundImage = null;
+            this.BackgroundImage.Image = null;
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -78,12 +78,13 @@ namespace AppLauncher.UserControls.Components
         {
             switch (MainScreen.Data.Settings.Theme)
             {
-                case "Dark": break;
-                case "Light":
-                    this.Button.BackColor = Color.FromArgb(215, 215, 215);
+                case "Dark":
+                    this.BackgroundImage.BackColor = Color.FromArgb(255, 0, 0);
                     break;
 
-                default: this.Button.BackColor = Color.FromArgb(65, 65, 80); break;
+                case "Light":
+                    this.BackgroundImage.BackColor = Color.FromArgb(215, 215, 215);
+                    break;
             }
         }
 
