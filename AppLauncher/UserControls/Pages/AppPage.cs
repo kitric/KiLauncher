@@ -203,7 +203,7 @@ namespace AppLauncher.UserControls.Pages
                 // Ensures everything is disposed by calling the garbage collector.
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                            
+
                 if (!Grid.Controls.Contains(Label)) this.Grid.Controls.Add(Label);
 
             }

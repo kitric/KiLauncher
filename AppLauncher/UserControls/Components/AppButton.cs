@@ -31,7 +31,7 @@ namespace AppLauncher.UserControls.Components
                 this.BackgroundImage.Image = GlobalFunctions.CropImageCenter(App.ImagePath, this.BackgroundImage);
 
             }
-            
+
             ApplyTheme();
 
             this.DisplayName.ForeColor = App.DisplayColor;

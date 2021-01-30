@@ -57,7 +57,6 @@ namespace AppLauncher.UserControls.Pages
         private void SetupWindow()
         {
             this.DisplayName.Text = AppButton.App.DisplayName == "-" || string.IsNullOrEmpty(AppButton.App.DisplayName) ? "-" : AppButton.App.DisplayName;
-
         }
 
 

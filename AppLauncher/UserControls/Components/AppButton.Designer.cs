@@ -47,7 +47,7 @@ namespace AppLauncher.UserControls.Components
             // DisplayName
             // 
             this.DisplayName.BackColor = System.Drawing.Color.Transparent;
-            this.DisplayName.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplayName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DisplayName.ForeColor = System.Drawing.Color.White;
             this.DisplayName.Location = new System.Drawing.Point(0, 0);
             this.DisplayName.Name = "DisplayName";
