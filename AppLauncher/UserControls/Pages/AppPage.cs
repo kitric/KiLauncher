@@ -15,7 +15,6 @@ namespace AppLauncher.UserControls.Pages
             ApplyTheme();
 
             this.SortModeLabel.Text = MainScreen.SortMode.ToString().Replace("_", " ");
-
         }
 
         private void ApplyTheme()
@@ -219,7 +218,8 @@ namespace AppLauncher.UserControls.Pages
         private void AppPage_Load(object sender, EventArgs e)
         {
             GlobalFunctions.HideScrollbars(Grid);
-            AddButtonsToGrid();
+            SortButtonsList();
+            this.Grid.Controls.Remove(Label);
         }
     }
 }

@@ -19,7 +19,6 @@ namespace AppLauncher.Forms
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             MainScreen.Data.Settings.Theme = Theme.Text;
-            MainScreen.Data.Settings.Animations = Animations.Checked;
 
             MessageBox.Show("Settings have been saved!\nThe app will now restart.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -67,7 +66,6 @@ namespace AppLauncher.Forms
         private void RestoreSettings()
         {
             this.Theme.Text = MainScreen.Data.Settings.Theme;
-            this.Animations.Checked = MainScreen.Data.Settings.Animations;
         }
 
 

@@ -47,7 +47,6 @@ namespace AppLauncher
                     this.BackColor = Color.FromArgb(20, 20, 20);
                     this.Sidebar.BackColor = Color.FromArgb(18, 18, 18);
                     this.Title.ForeColor = Color.White;
-                    this.bar.BackColor = Color.FromArgb(this.BackColor.R + 2, this.BackColor.G + 2, this.BackColor.B + 2);
 
                     break;
 
@@ -58,7 +57,6 @@ namespace AppLauncher
                     this.Title.ForeColor = Color.Tomato;
                     this.AppsLB.ForeColor = Color.Tomato;
                     this.SettingsLB.ForeColor = Color.Tomato;
-                    this.bar.BackColor = Color.FromArgb(this.BackColor.R - 2, this.BackColor.G - 2, this.BackColor.B - 2);
                     break;
             }
 
@@ -72,23 +70,11 @@ namespace AppLauncher
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void MainScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
             GlobalFunctions.SerializeOrExportUserData();
             Properties.Settings.Default.SortMode = (int)SortMode;
             Properties.Settings.Default.Save();
-
-            // At this point, the selected animation is the close animation, so it's safe to call the start function
-            // if animations are enabled, of course.
-            if (Data.Settings.Animations)
-            {
-                Animator.Start();
-
-            }
-            else
-            {
-                Application.Exit();
-            }
         }
 
         private void AppsLB_Click(object sender, EventArgs e)
@@ -104,16 +90,7 @@ namespace AppLauncher
 
         private void HomeLB_Click(object sender, EventArgs e) => GlobalFunctions.SwitchTo<HomePage>(this.Content);
 
-        private void MainScreen_Load(object sender, EventArgs e)
-        {
-            GlobalFunctions.DeserializeUserData();
-            Animator.Enabled = Data.Settings.Animations;
-
-            if (Animator.Enabled)
-            {
-                this.Opacity = 0;
-            }
-        }
+        private void MainScreen_Load(object sender, EventArgs e) => GlobalFunctions.DeserializeUserData();
 
         private void MainScreen_Shown(object sender, EventArgs e)
         {
@@ -142,36 +119,6 @@ namespace AppLauncher
         //</Dragging events>
         #endregion
 
-        #region Animations
-        private void OpenAnimation(object sender, EventArgs e)
-        {
-            if ((int)this.Opacity < 1)
-            {
-                this.Opacity += 0.06;
-
-            }
-            else
-            {
-                this.Animator.Stop();
-                this.Animator.Tick -= OpenAnimation;
-                this.Animator.Tick += CloseAnimation;
-            }
-        }
-
-        private void CloseAnimation(object sender, EventArgs e)
-        {
-            if (this.Opacity > 0)
-            {
-                this.Opacity -= 0.06;
-
-            }
-            else
-            {
-                this.Animator.Stop();
-                Application.Exit();
-            }
-        }
-        #endregion
 
         #region delegates
         /// <summary>

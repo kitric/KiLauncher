@@ -28,52 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
-            this.bar = new System.Windows.Forms.Panel();
-            this.CloseButton = new System.Windows.Forms.PictureBox();
             this.Content = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
             this.AppsLB = new System.Windows.Forms.Label();
             this.Sidebar = new System.Windows.Forms.Panel();
             this.HomeLB = new System.Windows.Forms.Label();
             this.SettingsLB = new System.Windows.Forms.Label();
-            this.Animator = new System.Windows.Forms.Timer(this.components);
-            this.bar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).BeginInit();
             this.Sidebar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bar
-            // 
-            this.bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.bar.Controls.Add(this.CloseButton);
-            this.bar.Location = new System.Drawing.Point(-185, 0);
-            this.bar.Name = "bar";
-            this.bar.Size = new System.Drawing.Size(1231, 19);
-            this.bar.TabIndex = 10;
-            this.bar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.bar_MouseDown);
-            this.bar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.bar_MouseMove);
-            this.bar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.bar_MouseUp);
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.CloseButton.Image = global::AppLauncher.Properties.Resources.closeApp;
-            this.CloseButton.Location = new System.Drawing.Point(1212, 3);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(16, 16);
-            this.CloseButton.TabIndex = 13;
-            this.CloseButton.TabStop = false;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // Content
             // 
             this.Content.BackColor = System.Drawing.Color.Transparent;
-            this.Content.Location = new System.Drawing.Point(151, 19);
+            this.Content.Location = new System.Drawing.Point(151, 0);
             this.Content.Name = "Content";
-            this.Content.Size = new System.Drawing.Size(895, 547);
+            this.Content.Size = new System.Drawing.Size(895, 567);
             this.Content.TabIndex = 11;
             // 
             // Title
@@ -106,9 +76,9 @@
             this.Sidebar.Controls.Add(this.SettingsLB);
             this.Sidebar.Controls.Add(this.Title);
             this.Sidebar.Controls.Add(this.AppsLB);
-            this.Sidebar.Location = new System.Drawing.Point(0, 19);
+            this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Size = new System.Drawing.Size(153, 547);
+            this.Sidebar.Size = new System.Drawing.Size(153, 567);
             this.Sidebar.TabIndex = 15;
             // 
             // HomeLB
@@ -133,11 +103,6 @@
             this.SettingsLB.Text = "Settings";
             this.SettingsLB.Click += new System.EventHandler(this.SettingsLB_Click);
             // 
-            // Animator
-            // 
-            this.Animator.Interval = 10;
-            this.Animator.Tick += new System.EventHandler(this.OpenAnimation);
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,31 +111,24 @@
             this.ClientSize = new System.Drawing.Size(1046, 566);
             this.Controls.Add(this.Sidebar);
             this.Controls.Add(this.Content);
-            this.Controls.Add(this.bar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainScreen";
             this.Text = "KiLauncher";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainScreen_FormClosed);
             this.Load += new System.EventHandler(this.MainScreen_Load);
             this.Shown += new System.EventHandler(this.MainScreen_Shown);
-            this.bar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CloseButton)).EndInit();
             this.Sidebar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel bar;
-        private System.Windows.Forms.PictureBox CloseButton;
         private System.Windows.Forms.Label Title;
         internal System.Windows.Forms.Panel Content;
         private System.Windows.Forms.Label AppsLB;
         private System.Windows.Forms.Panel Sidebar;
         private System.Windows.Forms.Label SettingsLB;
         private System.Windows.Forms.Label HomeLB;
-        private System.Windows.Forms.Timer Animator;
     }
 }
 

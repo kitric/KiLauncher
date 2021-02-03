@@ -79,7 +79,7 @@ namespace AppLauncher.UserControls.Components
             switch (MainScreen.Data.Settings.Theme)
             {
                 case "Dark":
-                    this.BackgroundImage.BackColor = Color.FromArgb(255, 0, 0);
+                    this.BackgroundImage.BackColor = Color.FromArgb(25, 25, 25);
                     break;
 
                 case "Light":

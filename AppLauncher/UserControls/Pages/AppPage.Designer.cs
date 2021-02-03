@@ -47,7 +47,7 @@ namespace AppLauncher.UserControls.Pages
             this.SortModeLabel.AutoSize = true;
             this.SortModeLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SortModeLabel.ForeColor = System.Drawing.Color.White;
-            this.SortModeLabel.Location = new System.Drawing.Point(9, 92);
+            this.SortModeLabel.Location = new System.Drawing.Point(-2, 92);
             this.SortModeLabel.Name = "SortModeLabel";
             this.SortModeLabel.Size = new System.Drawing.Size(69, 16);
             this.SortModeLabel.TabIndex = 15;
@@ -123,7 +123,7 @@ namespace AppLauncher.UserControls.Pages
             // sortDown_Arrow
             // 
             this.sortDown_Arrow.Image = global::AppLauncher.Properties.Resources.arrowDown;
-            this.sortDown_Arrow.Location = new System.Drawing.Point(34, 114);
+            this.sortDown_Arrow.Location = new System.Drawing.Point(23, 114);
             this.sortDown_Arrow.Name = "sortDown_Arrow";
             this.sortDown_Arrow.Size = new System.Drawing.Size(27, 30);
             this.sortDown_Arrow.TabIndex = 20;
@@ -133,7 +133,7 @@ namespace AppLauncher.UserControls.Pages
             // SortUp_Arrow
             // 
             this.SortUp_Arrow.Image = global::AppLauncher.Properties.Resources.arrowUp;
-            this.SortUp_Arrow.Location = new System.Drawing.Point(34, 64);
+            this.SortUp_Arrow.Location = new System.Drawing.Point(23, 64);
             this.SortUp_Arrow.Name = "SortUp_Arrow";
             this.SortUp_Arrow.Size = new System.Drawing.Size(27, 30);
             this.SortUp_Arrow.TabIndex = 17;

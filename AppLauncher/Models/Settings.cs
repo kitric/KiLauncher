@@ -6,12 +6,10 @@ namespace AppLauncher.Models
     public class Settings
     {
         public string Theme;
-        public bool Animations;
 
-        public Settings(string theme, bool useAnimations = true)
+        public Settings(string theme)
         {
             this.Theme = theme;
-            this.Animations = useAnimations;
         }
     }
 }

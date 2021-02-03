@@ -31,7 +31,6 @@ namespace AppLauncher.Forms
         {
             this.SettingsPage = new System.Windows.Forms.TabControl();
             this.AppSettings = new System.Windows.Forms.TabPage();
-            this.Animations = new System.Windows.Forms.CheckBox();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.Theme = new System.Windows.Forms.DomainUpDown();
             this.ThemeLB = new System.Windows.Forms.Label();
@@ -40,12 +39,12 @@ namespace AppLauncher.Forms
             this.ExportDataBtn = new System.Windows.Forms.Button();
             this.FAQ = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.SettingsPage.SuspendLayout();
             this.AppSettings.SuspendLayout();
             this.DataPage.SuspendLayout();
@@ -67,7 +66,6 @@ namespace AppLauncher.Forms
             // 
             // AppSettings
             // 
-            this.AppSettings.Controls.Add(this.Animations);
             this.AppSettings.Controls.Add(this.SaveBtn);
             this.AppSettings.Controls.Add(this.Theme);
             this.AppSettings.Controls.Add(this.ThemeLB);
@@ -78,16 +76,6 @@ namespace AppLauncher.Forms
             this.AppSettings.TabIndex = 0;
             this.AppSettings.Text = "App";
             this.AppSettings.UseVisualStyleBackColor = true;
-            // 
-            // Animations
-            // 
-            this.Animations.AutoSize = true;
-            this.Animations.Location = new System.Drawing.Point(10, 46);
-            this.Animations.Name = "Animations";
-            this.Animations.Size = new System.Drawing.Size(99, 17);
-            this.Animations.TabIndex = 5;
-            this.Animations.Text = "Use Animations";
-            this.Animations.UseVisualStyleBackColor = true;
             // 
             // SaveBtn
             // 
@@ -103,13 +91,14 @@ namespace AppLauncher.Forms
             // Theme
             // 
             this.Theme.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Theme.Items.Add("Default");
             this.Theme.Items.Add("Light");
             this.Theme.Items.Add("Dark");
             this.Theme.Location = new System.Drawing.Point(48, 16);
             this.Theme.Name = "Theme";
             this.Theme.Size = new System.Drawing.Size(120, 16);
             this.Theme.TabIndex = 1;
-            this.Theme.Text = "Light";
+            this.Theme.Text = "Default";
             // 
             // ThemeLB
             // 
@@ -176,6 +165,25 @@ namespace AppLauncher.Forms
             this.panel1.Size = new System.Drawing.Size(372, 204);
             this.panel1.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(4, 147);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(365, 42);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Let\'s say you have 2 PC\'s, and you use KiLauncher on both....\r\nYou can use export" +
+    " data on the PC that has the desired data, then import it on the outdated one.\r\n" +
+    "";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(2, 127);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(368, 15);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Exporting data? What even is that?!";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(5, 86);
@@ -212,25 +220,6 @@ namespace AppLauncher.Forms
             this.label1.Text = "How do I clear the cache?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(4, 147);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(365, 42);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Let\'s say you have 2 PC\'s, and you use KiLauncher on both....\r\nYou can use export" +
-    " data on the PC that has the desired data, then import it on the outdated one.\r\n" +
-    "";
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(2, 127);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(368, 15);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Exporting data? What even is that?!";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,7 +255,6 @@ namespace AppLauncher.Forms
         private System.Windows.Forms.TabPage DataPage;
         private System.Windows.Forms.Button ExportDataBtn;
         private System.Windows.Forms.Button ImportDataBtn;
-        private System.Windows.Forms.CheckBox Animations;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
     }
