@@ -11,6 +11,7 @@ namespace AppLauncher.UserControls.Pages
         {
             InitializeComponent();
             ApplyTheme();
+            Dock = DockStyle.Fill;
         }
 
         private void NordicBtn_Click(object sender, EventArgs e) => Process.Start("https://github.com/nordic16");

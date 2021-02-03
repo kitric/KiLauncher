@@ -40,6 +40,9 @@
             // 
             // Content
             // 
+            this.Content.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Content.BackColor = System.Drawing.Color.Transparent;
             this.Content.Location = new System.Drawing.Point(151, 0);
             this.Content.Name = "Content";
@@ -71,6 +74,8 @@
             // 
             // Sidebar
             // 
+            this.Sidebar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(67)))));
             this.Sidebar.Controls.Add(this.HomeLB);
             this.Sidebar.Controls.Add(this.SettingsLB);
@@ -112,6 +117,7 @@
             this.Controls.Add(this.Sidebar);
             this.Controls.Add(this.Content);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(784, 474);
             this.Name = "MainScreen";
             this.Text = "KiLauncher";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainScreen_FormClosed);

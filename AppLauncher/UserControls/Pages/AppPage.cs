@@ -9,10 +9,14 @@ namespace AppLauncher.UserControls.Pages
 {
     public partial class AppPage : UserControl
     {
+        internal static AppPage Instance;
+
         public AppPage()
         {
             InitializeComponent();
             ApplyTheme();
+
+            Instance = this;
 
             this.SortModeLabel.Text = MainScreen.SortMode.ToString().Replace("_", " ");
         }

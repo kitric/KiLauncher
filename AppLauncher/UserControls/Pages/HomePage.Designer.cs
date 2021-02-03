@@ -37,12 +37,11 @@ namespace AppLauncher.UserControls.Pages
             // 
             // Title
             // 
-            this.Title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.ForeColor = System.Drawing.Color.White;
-            this.Title.Location = new System.Drawing.Point(269, 47);
+            this.Title.Location = new System.Drawing.Point(105, 47);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(283, 56);
             this.Title.TabIndex = 0;
@@ -50,10 +49,11 @@ namespace AppLauncher.UserControls.Pages
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(400, 103);
+            this.label1.Location = new System.Drawing.Point(236, 103);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 16);
             this.label1.TabIndex = 1;
@@ -61,13 +61,14 @@ namespace AppLauncher.UserControls.Pages
             // 
             // crxssedBtn
             // 
+            this.crxssedBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.crxssedBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(68)))));
             this.crxssedBtn.FlatAppearance.BorderSize = 0;
             this.crxssedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.crxssedBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crxssedBtn.ForeColor = System.Drawing.Color.White;
             this.crxssedBtn.Image = global::AppLauncher.Properties.Resources.crxssed;
-            this.crxssedBtn.Location = new System.Drawing.Point(547, 227);
+            this.crxssedBtn.Location = new System.Drawing.Point(383, 227);
             this.crxssedBtn.Name = "crxssedBtn";
             this.crxssedBtn.Size = new System.Drawing.Size(125, 161);
             this.crxssedBtn.TabIndex = 3;
@@ -77,13 +78,14 @@ namespace AppLauncher.UserControls.Pages
             // 
             // NordicBtn
             // 
+            this.NordicBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.NordicBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(53)))), ((int)(((byte)(68)))));
             this.NordicBtn.FlatAppearance.BorderSize = 0;
             this.NordicBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NordicBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NordicBtn.ForeColor = System.Drawing.Color.White;
             this.NordicBtn.Image = global::AppLauncher.Properties.Resources.nordic;
-            this.NordicBtn.Location = new System.Drawing.Point(176, 227);
+            this.NordicBtn.Location = new System.Drawing.Point(12, 227);
             this.NordicBtn.Name = "NordicBtn";
             this.NordicBtn.Size = new System.Drawing.Size(125, 161);
             this.NordicBtn.TabIndex = 2;
@@ -101,7 +103,7 @@ namespace AppLauncher.UserControls.Pages
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Title);
             this.Name = "HomePage";
-            this.Size = new System.Drawing.Size(932, 535);
+            this.Size = new System.Drawing.Size(604, 535);
             this.ResumeLayout(false);
             this.PerformLayout();
 

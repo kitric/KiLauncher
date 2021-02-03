@@ -45,6 +45,7 @@ namespace AppLauncher.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ClearDataBtn = new System.Windows.Forms.Button();
             this.SettingsPage.SuspendLayout();
             this.AppSettings.SuspendLayout();
             this.DataPage.SuspendLayout();
@@ -111,6 +112,7 @@ namespace AppLauncher.Forms
             // 
             // DataPage
             // 
+            this.DataPage.Controls.Add(this.ClearDataBtn);
             this.DataPage.Controls.Add(this.ImportDataBtn);
             this.DataPage.Controls.Add(this.ExportDataBtn);
             this.DataPage.Location = new System.Drawing.Point(4, 22);
@@ -123,7 +125,7 @@ namespace AppLauncher.Forms
             // 
             // ImportDataBtn
             // 
-            this.ImportDataBtn.Location = new System.Drawing.Point(8, 52);
+            this.ImportDataBtn.Location = new System.Drawing.Point(8, 54);
             this.ImportDataBtn.Name = "ImportDataBtn";
             this.ImportDataBtn.Size = new System.Drawing.Size(75, 23);
             this.ImportDataBtn.TabIndex = 1;
@@ -220,6 +222,16 @@ namespace AppLauncher.Forms
             this.label1.Text = "How do I clear the cache?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // ClearDataBtn
+            // 
+            this.ClearDataBtn.Location = new System.Drawing.Point(8, 90);
+            this.ClearDataBtn.Name = "ClearDataBtn";
+            this.ClearDataBtn.Size = new System.Drawing.Size(75, 23);
+            this.ClearDataBtn.TabIndex = 2;
+            this.ClearDataBtn.Text = "Clear Data";
+            this.ClearDataBtn.UseVisualStyleBackColor = true;
+            this.ClearDataBtn.Click += new System.EventHandler(this.ClearDataBtn_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,5 +269,6 @@ namespace AppLauncher.Forms
         private System.Windows.Forms.Button ImportDataBtn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button ClearDataBtn;
     }
 }

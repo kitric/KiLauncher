@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AppLauncher.UserControls.Components;
+using AppLauncher.UserControls.Pages;
+using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace AppLauncher.Forms
@@ -68,6 +71,52 @@ namespace AppLauncher.Forms
             this.Theme.Text = MainScreen.Data.Settings.Theme;
         }
 
+        private void ClearDataBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("THIS OPTION ALLOWS YOU TO RESET KILAUNCHER.\nARE YOU SURE YOU WANT TO PROCEED?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                MainScreen.Data.Apps.Clear();
 
+                if (AppPage.Instance != null)
+                {
+                    foreach (AppButton btn in AppPage.Instance?.Grid.Controls)
+                    {
+                        btn.DeleteBG();
+                        btn.Dispose();
+                    }
+                }
+
+                DeleteFilesRecursively(GlobalFunctions.GetProgramAppdataFolder());
+            }
+        }
+
+        /// <summary>
+        /// Deletes everything within path recursively.
+        /// </summary>
+        /// <param name="path">The parent folder. This folder won't be deleted.</param>
+        private static void DeleteFilesRecursively(string path)
+        {
+            if (Directory.GetFileSystemEntries(path).Length > 0)
+            {
+                foreach (string fPath in Directory.GetFileSystemEntries(path))
+                {
+                    if (Directory.Exists(fPath))
+                    {
+                        // Delete everything within fPath.
+                        DeleteFilesRecursively(fPath);
+                        Directory.Delete(fPath); // Folder will be deleted after all children have been deleted.
+                    
+                    } else //It's a file.
+                    {
+                        File.Delete(fPath);
+                    }
+                }
+            
+            // If the folder is empty, no need to recurse through its content, so go back and recurse through the parent folder.
+            } else 
+            {
+                return;
+            }
+        }
     }
 }
