@@ -82,7 +82,7 @@ namespace AppLauncher.UserControls.Pages
                     GlobalFunctions.CreateCopyInCache(this.ImagePathText.Text, app.ID) : "";
 
                 MainScreen.Data.Apps.Add(app);
-                
+
                 GlobalFunctions.SwitchTo<AppPage>(MainScreen.Instance.Content, args: new object[] { });
             }
             else
