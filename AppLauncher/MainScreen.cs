@@ -18,11 +18,8 @@ namespace AppLauncher
 
     public partial class MainScreen : Form
     {
-        public static UserData Data;
+        public static UserData Data { get; set; }
         public static SortMode SortMode { get; set; }
-
-        private bool dragging;
-        private Point startPoint;
 
 
         public static MainScreen Instance;
@@ -72,9 +69,12 @@ namespace AppLauncher
         /// <param name="e"></param>
         private void MainScreen_FormClosed(object sender, FormClosedEventArgs e)
         {
-            GlobalFunctions.SerializeOrExportUserData();
-            Properties.Settings.Default.SortMode = (int)SortMode;
-            Properties.Settings.Default.Save();
+            if (GlobalFunctions.canSerialize)
+            {
+                GlobalFunctions.SerializeOrExportUserData();
+                Properties.Settings.Default.SortMode = (int)SortMode;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void AppsLB_Click(object sender, EventArgs e)
@@ -97,26 +97,6 @@ namespace AppLauncher
             ApplyTheme();
             Content.Controls.Add(new HomePage());
         }
-
-        //<Dragging events>
-        private void bar_MouseDown(object sender, MouseEventArgs e)
-        {
-            dragging = true;
-            startPoint = e.Location;
-
-        }
-
-        private void bar_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                this.Location = new Point((this.Location.X - startPoint.X) + e.X, (this.Location.Y - startPoint.Y) + e.Y);
-                this.Update();
-            }
-        }
-
-        private void bar_MouseUp(object sender, MouseEventArgs e) => dragging = false;
-        //</Dragging events>
         #endregion
 
 

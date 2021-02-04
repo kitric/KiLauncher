@@ -12,7 +12,7 @@ namespace AppLauncher.Models
         public UserData()
         {
             this.Apps = new List<App>();
-            this.Settings = new Settings("Light");
+            this.Settings = new Settings();
         }
     }
 }

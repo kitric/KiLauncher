@@ -12,6 +12,8 @@ namespace AppLauncher
     public static class GlobalFunctions
     {
 
+        public static bool canSerialize = true;
+
         /// <summary>
         /// Returns the appdata folder for this application.
         /// </summary>
@@ -198,6 +200,7 @@ namespace AppLauncher
                 formatter.Serialize(fs, MainScreen.Data);
             }
         }
+
         #endregion
     }
 }

@@ -75,11 +75,15 @@ namespace AppLauncher.Forms
         {
             if (MessageBox.Show("THIS OPTION ALLOWS YOU TO RESET KILAUNCHER.\nARE YOU SURE YOU WANT TO PROCEED?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
+                // Avoids serialization.
+                GlobalFunctions.canSerialize = false;
+
                 MainScreen.Data.Apps.Clear();
 
                 if (AppPage.Instance != null)
                 {
-                    foreach (AppButton btn in AppPage.Instance?.Grid.Controls)
+                    MainScreen.Instance.Hide();
+                    foreach (AppButton btn in AppPage.Instance.Grid.Controls)
                     {
                         btn.DeleteBG();
                         btn.Dispose();
@@ -87,6 +91,9 @@ namespace AppLauncher.Forms
                 }
 
                 DeleteFilesRecursively(GlobalFunctions.GetProgramAppdataFolder());
+
+                MessageBox.Show("KiLauncher has been reset to its default stage.\nThe app will now restart.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Restart();
             }
         }
 
@@ -108,7 +115,6 @@ namespace AppLauncher.Forms
                         // Delete everything within fPath.
                         DeleteFilesRecursively(fPath);
                         Directory.Delete(fPath); // Folder is deleted after all children have been deleted.
-
                     }
                     else //It's a file.
                     {
