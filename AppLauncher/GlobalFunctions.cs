@@ -132,7 +132,6 @@ namespace AppLauncher
             UserControl control = (UserControl)Activator.CreateInstance(typeof(T), args ?? new object[] { });
             control.Dock = DockStyle.Fill;
 
-
             // If the window on the top is different:
             if (topControl.GetType() != control.GetType())
             {

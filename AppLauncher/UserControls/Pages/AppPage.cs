@@ -40,7 +40,6 @@ namespace AppLauncher.UserControls.Pages
 
                     this.SortModeLabel.ForeColor = Color.Tomato;
 
-
                     this.CreateApp.ForeColor = Color.Tomato;
                     this.CreateApp.BackColor = Color.White;
 
@@ -56,25 +55,6 @@ namespace AppLauncher.UserControls.Pages
         }
 
         /// <summary>
-        /// Adds the already-deserialized buttons in the list to the grid.
-        /// </summary>
-        private void AddButtonsToGrid()
-        {
-            // If there are buttons in the grid, remove the label.
-            if (MainScreen.Data.Apps.Count > 0)
-            {
-                foreach (App p in MainScreen.Data.Apps)
-                {
-                    AppButton btn = new AppButton(p);
-                    this.Grid.Controls.Add(btn);
-                }
-
-                this.Grid.Controls.Remove(Label);
-            }
-        }
-
-
-        /// <summary>
         /// Contains the code that handles the search feature.
         /// </summary>
         /// <param name="query">The query.</param>
@@ -84,7 +64,7 @@ namespace AppLauncher.UserControls.Pages
             // If the query is empty, no need to execute this at all.
             if (!string.IsNullOrEmpty(query))
             {
-                ClearButtons(false);
+                ClearButtons(clearCache: false);
 
                 foreach (App p in MainScreen.Data.Apps)
                 {
@@ -131,7 +111,6 @@ namespace AppLauncher.UserControls.Pages
         /// 
         public void SortButtonsList()
         {
-
             switch (MainScreen.SortMode)
             {
                 case SortMode.Name_Asc: MainScreen.Data.Apps.Sort(MainScreen.SortByName_Asc); break;
@@ -222,8 +201,13 @@ namespace AppLauncher.UserControls.Pages
         private void AppPage_Load(object sender, EventArgs e)
         {
             GlobalFunctions.HideScrollbars(Grid);
-            SortButtonsList();
-            this.Grid.Controls.Remove(Label);
+
+            // If there are any apps in the Apps list, sort them, removing the "So Empty..." label afterwards. 
+            if (MainScreen.Data.Apps.Count > 0)
+            {
+                SortButtonsList();
+                this.Grid.Controls.Remove(Label);
+            }
         }
     }
 }

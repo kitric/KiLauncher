@@ -7,7 +7,7 @@ namespace AppLauncher.Models
     {
         public string Theme;
 
-        public Settings(string theme = "default")
+        public Settings(string theme = "Default")
         {
             this.Theme = theme;
         }
