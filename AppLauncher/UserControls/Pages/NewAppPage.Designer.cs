@@ -162,7 +162,6 @@ namespace AppLauncher.UserControls.Pages
             this.DisplayName.Name = "DisplayName";
             this.DisplayName.Size = new System.Drawing.Size(213, 16);
             this.DisplayName.TabIndex = 15;
-            this.DisplayName.Text = "-";
             // 
             // ImagePathText
             // 

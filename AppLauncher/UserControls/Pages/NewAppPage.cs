@@ -74,7 +74,7 @@ namespace AppLauncher.UserControls.Pages
         {
             if (!string.IsNullOrEmpty(this.PathText.Text))
             {
-                string name = this.DisplayName.Text == "-" || string.IsNullOrEmpty(this.DisplayName.Text) ? "" : this.DisplayName.Text;
+                string name = string.IsNullOrEmpty(this.DisplayName.Text) ? "" : this.DisplayName.Text;
 
                 App app = new App(this.PathText.Text, name, SelectedColor);
                 //Creates a new copy in the app cache if an image is specified.

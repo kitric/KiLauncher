@@ -187,7 +187,6 @@ namespace AppLauncher.UserControls.Pages
                 GC.WaitForPendingFinalizers();
 
                 if (!Grid.Controls.Contains(Label)) this.Grid.Controls.Add(Label);
-
             }
         }
 
