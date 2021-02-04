@@ -58,19 +58,46 @@ namespace AppLauncher
         // Algorithm utilises the SizeMode.CenterImage property on a PictureBox, so it accurately works out the proportion the 
         // image must be in order to not be squished.
         // It also utilises the ResizeImage function (see below).
-        public static Image CropImageCenter(string imageLocation, PictureBox picturebox)
+
+        // Credits to my boi crxssed: https://github.com/crxssed7/
+        public static Image CropImageCenter(string imageLocation, PictureBox pictureBox)
         {
             using (Image image = Image.FromFile(imageLocation))
             {
+                // If its a square
+                if (image.Height == image.Width)
+                {
+                    // I don't know why, but if its a square the calculations are switched.
+                    if (pictureBox.Width > image.Height)
+                    {
+                        double multiplier = Math.Round((double)(pictureBox.Width) / image.Width, 10);
+
+                        double newHeight = image.Height * multiplier;
+                        int newWidth = pictureBox.Width;
+
+                        return ResizeImage(image, newWidth, Convert.ToInt32(Math.Round(newHeight, 0)));
+                    }
+                    else
+                    {
+                        double multiplier = Math.Round((double)(pictureBox.Height) / image.Height, 10);
+
+                        int newHeight = pictureBox.Height;
+                        // Apply that multiplier to the width to get the final width of the image
+                        double newWidth = image.Width * multiplier;
+
+                        return ResizeImage(image, Convert.ToInt32(Math.Round(newWidth, 0)), newHeight);
+                    }
+                }
+
                 // If the Width of the image is bigger than the height, then we know the sides will be cut off
-                if (picturebox.Width > image.Height)
+                else if (pictureBox.Width > image.Height)
                 {
                     // The algorithm works by making the height of the final image the same as the height of the PictureBox (this is different for width, see else statement), 
                     // but we first need to find out what the final width will be so the image doesn't come out as squished.
                     // This formula determines the number we need to multiply by to get an unstretched image
-                    double multiplier = Math.Round((double)(picturebox.Height) / image.Height, 10);
+                    double multiplier = Math.Round((double)(pictureBox.Height) / image.Height, 10);
 
-                    int newHeight = picturebox.Height;
+                    int newHeight = pictureBox.Height;
                     // Apply that multiplier to the width to get the final width of the image
                     double newWidth = image.Width * multiplier;
 
@@ -80,10 +107,10 @@ namespace AppLauncher
                 else
                 {
                     // Same as above, however the top and bottom will be cut instead, so we do the calculation around width instead.
-                    double multiplier = Math.Round((double)(picturebox.Width) / image.Width, 10);
+                    double multiplier = Math.Round((double)(pictureBox.Width) / image.Width, 10);
 
                     double newHeight = image.Height * multiplier;
-                    int newWidth = picturebox.Width;
+                    int newWidth = pictureBox.Width;
 
                     return ResizeImage(image, newWidth, Convert.ToInt32(Math.Round(newHeight, 0)));
                 }
