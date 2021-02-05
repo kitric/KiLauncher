@@ -26,13 +26,12 @@ namespace AppLauncher.UserControls.Components
             this.App = app;
             this.DisplayName.Text = App.DisplayName;
 
+            ApplyTheme();
+
             if (!string.IsNullOrEmpty(App.ImagePath))
             {
                 this.BackgroundImage.Image = GlobalFunctions.CropImageCenter(App.ImagePath, this.BackgroundImage);
-
             }
-
-            ApplyTheme();
 
             this.DisplayName.ForeColor = App.DisplayColor;
 
@@ -103,9 +102,9 @@ namespace AppLauncher.UserControls.Components
                 rand = random.Next(int.MaxValue - 5);
 
                 //Loops for all created buttons. Checks if the generated ID already exists.
-                foreach (App x in MainScreen.Data.Apps)
+                for (int i = 0; i < MainScreen.Data.Apps.Count; i++)
                 {
-                    if (x.ID == rand)
+                    if (MainScreen.Data.Apps[i].ID == rand)
                     {
                         found = true;
                         break;

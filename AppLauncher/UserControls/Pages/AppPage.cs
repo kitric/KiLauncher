@@ -90,18 +90,18 @@ namespace AppLauncher.UserControls.Pages
 
 
         /// <summary>
-        /// Clears all buttons from the grid.
+        /// Clears all buttons.
         /// </summary>
         private void ClearButtons(bool clearCache)
         {
             // In order to not mess with the for each loop, a copy of the list must be created.
             List<AppButton> controls = new List<AppButton>(Grid.Controls.OfType<AppButton>());
 
-            foreach (AppButton btn in controls)
+            for (int i = 0; i < controls.Count; i++)
             {
-                if (clearCache) btn.DeleteBG();
+                if (clearCache) controls[i].DeleteBG();
 
-                btn.Dispose();
+                controls[i].Dispose();
             }
         }
 
@@ -117,13 +117,16 @@ namespace AppLauncher.UserControls.Pages
                 case SortMode.Name_Desc: MainScreen.Data.Apps.Sort(MainScreen.SortByName_Desc); break;
             }
 
-            // Clears everything to add them again.
-            ClearButtons(false);
+            // Clears everything, then adds all buttons again.
+            ClearButtons(clearCache: false);
 
-            foreach (App p in MainScreen.Data.Apps)
+            AppButton[] buttons = new AppButton[MainScreen.Data.Apps.Count];
+            for (int i = 0; i < buttons.Length; i++)
             {
-                Grid.Controls.Add(new AppButton(p));
+                buttons[i] = new AppButton(MainScreen.Data.Apps[i]);
             }
+
+            Grid.Controls.AddRange(buttons);
 
             string name = MainScreen.SortMode.ToString().Replace("_", " ");
             this.SortModeLabel.Text = name;
@@ -138,6 +141,9 @@ namespace AppLauncher.UserControls.Pages
 
         private void SortUpArrow_Click(object sender, EventArgs e)
         {
+            this.Controls.Add(SplashScreen);
+            this.SplashScreen.BringToFront();
+
             int current = (int)MainScreen.SortMode;
 
             if (current == 0)
@@ -151,10 +157,13 @@ namespace AppLauncher.UserControls.Pages
             }
 
             SortButtonsList();
+            this.Controls.Remove(SplashScreen);
         }
 
         private void SortDownArrow_Click(object sender, EventArgs e)
         {
+            this.Controls.Add(SplashScreen);
+
             int current = (int)MainScreen.SortMode;
             int length = Enum.GetValues(typeof(SortMode)).Length;
 
@@ -168,6 +177,7 @@ namespace AppLauncher.UserControls.Pages
             }
 
             SortButtonsList();
+            this.Controls.Remove(SplashScreen);
         }
 
         /// <summary>
@@ -207,6 +217,8 @@ namespace AppLauncher.UserControls.Pages
                 SortButtonsList();
                 this.Grid.Controls.Remove(Label);
             }
+
+            this.Controls.Remove(SplashScreen);
         }
     }
 }

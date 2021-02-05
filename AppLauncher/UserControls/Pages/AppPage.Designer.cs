@@ -37,9 +37,12 @@ namespace AppLauncher.UserControls.Pages
             this.Grid = new System.Windows.Forms.FlowLayoutPanel();
             this.sortDown_Arrow = new System.Windows.Forms.PictureBox();
             this.SortUp_Arrow = new System.Windows.Forms.PictureBox();
+            this.SplashScreen = new System.Windows.Forms.Panel();
+            this.SortingLB = new System.Windows.Forms.Label();
             this.Grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sortDown_Arrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SortUp_Arrow)).BeginInit();
+            this.SplashScreen.SuspendLayout();
             this.SuspendLayout();
             // 
             // SortModeLabel
@@ -140,11 +143,32 @@ namespace AppLauncher.UserControls.Pages
             this.SortUp_Arrow.TabStop = false;
             this.SortUp_Arrow.Click += new System.EventHandler(this.SortUpArrow_Click);
             // 
+            // SplashScreen
+            // 
+            this.SplashScreen.Controls.Add(this.SortingLB);
+            this.SplashScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplashScreen.Location = new System.Drawing.Point(0, 0);
+            this.SplashScreen.Name = "SplashScreen";
+            this.SplashScreen.Size = new System.Drawing.Size(895, 494);
+            this.SplashScreen.TabIndex = 21;
+            // 
+            // SortingLB
+            // 
+            this.SortingLB.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SortingLB.ForeColor = System.Drawing.Color.White;
+            this.SortingLB.Location = new System.Drawing.Point(0, 0);
+            this.SortingLB.Name = "SortingLB";
+            this.SortingLB.Size = new System.Drawing.Size(895, 494);
+            this.SortingLB.TabIndex = 0;
+            this.SortingLB.Text = "Sorting...";
+            this.SortingLB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AppPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.SplashScreen);
             this.Controls.Add(this.sortDown_Arrow);
             this.Controls.Add(this.SortUp_Arrow);
             this.Controls.Add(this.SortModeLabel);
@@ -158,6 +182,7 @@ namespace AppLauncher.UserControls.Pages
             this.Grid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sortDown_Arrow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SortUp_Arrow)).EndInit();
+            this.SplashScreen.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +197,7 @@ namespace AppLauncher.UserControls.Pages
         private System.Windows.Forms.TextBox SearchBar;
         public System.Windows.Forms.FlowLayoutPanel Grid;
         private System.Windows.Forms.PictureBox sortDown_Arrow;
+        private System.Windows.Forms.Panel SplashScreen;
+        private System.Windows.Forms.Label SortingLB;
     }
 }
