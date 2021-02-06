@@ -61,30 +61,31 @@ namespace AppLauncher.UserControls.Pages
         /// 
         private void HandleSearch(string query)
         {
+            AppButton[] appButtons;
+
             // If the query is empty, no need to execute this at all.
             if (!string.IsNullOrEmpty(query))
             {
                 ClearButtons(clearCache: false);
 
-                foreach (App p in MainScreen.Data.Apps)
-                {
-                    if (p.DisplayName.ToLower().Contains(query)) // Found you boi
-                    {
-                        this.Grid.Controls.Add(new AppButton(p));
-                    }
-                }
+                appButtons = GetAppButtonArray();
 
-                if (this.Grid.Controls.Count == 0) // No results... How did that happen?!
-                {
-                    this.Grid.Controls.Add(Label);
-                }
-
+                // Selects all buttons from appButton whose displayName match the query.
+                appButtons = appButtons.Where(x => x.App.DisplayName.ToLower().Contains(query)).ToArray();
             }
             else // Adds all buttons to the list, again.
             {
-                ClearButtons(false);
+                ClearButtons(clearCache: false);
 
-                MainScreen.Data.Apps.ForEach(x => Grid.Controls.Add(new AppButton(x)));
+                appButtons = GetAppButtonArray();
+            }
+            
+            this.Grid.Controls.AddRange(appButtons);
+
+            // No results... How did that happen?!
+            if (this.Grid.Controls.Count == 0) 
+            {
+                this.Grid.Controls.Add(Label);
             }
         }
 
@@ -132,6 +133,18 @@ namespace AppLauncher.UserControls.Pages
             this.SortModeLabel.Text = name;
         }
 
+        private static AppButton[] GetAppButtonArray()
+        {
+            int len = MainScreen.Data.Apps.Count;
+
+            AppButton[] apps = new AppButton[len];
+            for (int i = 0; i < len; i++)
+            {
+                apps[i] = new AppButton(MainScreen.Data.Apps[i]);
+            }
+
+            return apps;
+        }
 
         #region events
         private void CreateApp_Click(object sender, EventArgs e)
@@ -208,7 +221,6 @@ namespace AppLauncher.UserControls.Pages
                 HandleSearch(this.SearchBar.Text);
             }
         }
-        #endregion
 
         private void AppPage_Load(object sender, EventArgs e)
         {
@@ -223,5 +235,6 @@ namespace AppLauncher.UserControls.Pages
 
             this.Controls.Remove(SplashScreen);
         }
+        #endregion
     }
 }
