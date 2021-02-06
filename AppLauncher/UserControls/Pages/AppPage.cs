@@ -76,7 +76,6 @@ namespace AppLauncher.UserControls.Pages
             else // Adds all buttons to the list, again.
             {
                 ClearButtons(clearCache: false);
-
                 appButtons = GetAppButtonArray();
             }
             

@@ -40,6 +40,8 @@ namespace AppLauncher.UserControls.Pages
             // 
             // DisplayName
             // 
+            this.DisplayName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DisplayName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.DisplayName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DisplayName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -56,7 +58,8 @@ namespace AppLauncher.UserControls.Pages
             // 
             // ChangePath
             // 
-            this.ChangePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ChangePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangePath.FlatAppearance.BorderSize = 0;
             this.ChangePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -72,7 +75,8 @@ namespace AppLauncher.UserControls.Pages
             // 
             // ChangeImagePath
             // 
-            this.ChangeImagePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangeImagePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ChangeImagePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangeImagePath.FlatAppearance.BorderSize = 0;
             this.ChangeImagePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -88,7 +92,8 @@ namespace AppLauncher.UserControls.Pages
             // 
             // RemoveImage
             // 
-            this.RemoveImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RemoveImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.RemoveImage.FlatAppearance.BorderSize = 0;
             this.RemoveImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -104,7 +109,8 @@ namespace AppLauncher.UserControls.Pages
             // 
             // ChangeColor
             // 
-            this.ChangeColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangeColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ChangeColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.ChangeColor.FlatAppearance.BorderSize = 0;
             this.ChangeColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -120,7 +126,8 @@ namespace AppLauncher.UserControls.Pages
             // 
             // DeleteApp
             // 
-            this.DeleteApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteApp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.DeleteApp.FlatAppearance.BorderSize = 0;
             this.DeleteApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
