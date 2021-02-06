@@ -109,7 +109,7 @@ namespace AppLauncher.UserControls.Pages
             this.SearchBar.Size = new System.Drawing.Size(200, 16);
             this.SearchBar.TabIndex = 19;
             this.SearchBar.Tag = "";
-            this.SearchBar.TextChanged += new System.EventHandler(this.SearchBar_TextChanged);
+            this.SearchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBar_KeyDown);
             // 
             // Grid
             // 

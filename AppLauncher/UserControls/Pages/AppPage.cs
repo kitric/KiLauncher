@@ -200,10 +200,13 @@ namespace AppLauncher.UserControls.Pages
             }
         }
 
-        private void SearchBar_TextChanged(object sender, EventArgs e)
+        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
         {
-            this.Grid.Controls.Remove(Label);
-            HandleSearch(this.SearchBar.Text);
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.Grid.Controls.Remove(Label);
+                HandleSearch(this.SearchBar.Text);
+            }
         }
         #endregion
 
