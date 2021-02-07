@@ -68,7 +68,7 @@ namespace AppLauncher.UserControls.Pages
             this.crxssedBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.crxssedBtn.ForeColor = System.Drawing.Color.White;
             this.crxssedBtn.Image = global::AppLauncher.Properties.Resources.crxssed;
-            this.crxssedBtn.Location = new System.Drawing.Point(383, 227);
+            this.crxssedBtn.Location = new System.Drawing.Point(466, 227);
             this.crxssedBtn.Name = "crxssedBtn";
             this.crxssedBtn.Size = new System.Drawing.Size(125, 161);
             this.crxssedBtn.TabIndex = 3;

@@ -120,11 +120,7 @@ namespace AppLauncher.UserControls.Pages
             // Clears everything, then adds all buttons again.
             ClearButtons(clearCache: false);
 
-            AppButton[] buttons = new AppButton[MainScreen.Data.Apps.Count];
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                buttons[i] = new AppButton(MainScreen.Data.Apps[i]);
-            }
+            AppButton[] buttons = GetAppButtonArray();
 
             Grid.Controls.AddRange(buttons);
 
@@ -132,6 +128,10 @@ namespace AppLauncher.UserControls.Pages
             this.SortModeLabel.Text = name;
         }
 
+        /// <summary>
+        /// A helper method for SortButtonsList.
+        /// </summary>
+        /// <returns></returns>
         private static AppButton[] GetAppButtonArray()
         {
             int len = MainScreen.Data.Apps.Count;
@@ -175,6 +175,7 @@ namespace AppLauncher.UserControls.Pages
         private void SortDownArrow_Click(object sender, EventArgs e)
         {
             this.Controls.Add(SplashScreen);
+            this.SplashScreen.BringToFront();
 
             int current = (int)MainScreen.SortMode;
             int length = Enum.GetValues(typeof(SortMode)).Length;
