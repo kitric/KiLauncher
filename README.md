@@ -1,1 +1,3 @@
 # KiLauncher
+
+![Logo](kilauncher.png)
